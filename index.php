@@ -11,8 +11,9 @@
     <form action=".php" method="post">
         <div class="login-box">
             <div class="login-header">
-                <header>Bienvenue! </header>
-                <div class="label2"> veuillez vous connecter</div>
+                <header>Bienvenue! </header><br>
+                <div class="label2">veuillez vous connecter</div>
+
             </div>
             <div class="input-box">
                 <input type="text" class="input-field" name="id" id="id" placeholder="ID" autocomplete="off" required>
