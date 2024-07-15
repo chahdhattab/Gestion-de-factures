@@ -51,6 +51,9 @@ body {
     outline: none;
     transition: all 0.5s ease-in-out;
 }
+.input-field{
+    color: #1A334A;
+}
 
 .login-btn {
     width: 100%;
