@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <form action=".php" method="post">
+    <form action="" method="post">
         <div class="login-box">
             <div class="login-header">
                 <header>Bienvenue! </header><br>
@@ -16,10 +16,10 @@
 
             </div>
             <div class="input-box">
-                <input type="text" class="input-field" name="id" id="id" placeholder="ID" autocomplete="off" required>
+                <input type="text" class="input-field" name="id" id="id" placeholder="ID" autocomplete="off" >
             </div>
             <div class="input-box">
-                <input type="password" class="input-field" name="password" id="password" placeholder="Mot de passe" autocomplete="off" required><br><br><br>
+                <input type="password" class="input-field" name="password" id="password" placeholder="Mot de passe" autocomplete="off" ><br><br><br>
             </div>
             <div class="login-submit">
                 <button type ="submit "class="login-btn" id="submit">Se connecter</button>
@@ -27,7 +27,7 @@
             </div>
         </div>
     </form>
-
+    <script src="javascript/login-script.js"></script>
 
 
 
