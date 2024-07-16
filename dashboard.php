@@ -14,16 +14,16 @@
                     <img src="images/Sqli-logo.webp" alt="Logo" >
                 </div>
                 <div class="close" >
-                    <img src="images/close.png" alt="Logo" style="width:30px;">
+                    <img src="images/close.png" alt="Logo" style="width:15px;">
                 </div>
             </div>
-
-            <div class="sidebar">
-                <a href="#">
+     <!-------------------------side-bar----------------------------->
+            <div class="sidebar" >
+                <a href="#" class="active">
                     <img src="images/dashboard.png" alt="Logo" style="width:30px;">
                     <h3>Dashboard</h3>
                 </a>
-                <a href="#">
+                <a href="#" >
                     <img src="images/loupe.png" alt="Logo" style="width:30px;">
                     <h3>Recherche</h3>
                 </a>
@@ -46,6 +46,42 @@
             </div>
             
         </aside>
+
+        <main>
+            <h1>Dashboard</h1>
+            <div class="insights">
+                <div class="factures">
+                    <img src="images/factures.png" alt="logo" style="width:30px;">
+                    <div class="left">
+                        <h3>Total factures</h3>
+                        <h1>302</h1>
+                    </div>
+                    <div class="progress">
+                        <svg>
+                            <circle cx='38' cy='38' r='36'></circle>
+                        </svg>
+                        <div class="number">
+                            <p>81%</p>
+                        </div>
+                    </div>   
+                </div>
+                <small class="text-muted">Last 24 Hours</small>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </main>
+
     </div>
 </body>
 </html>
