@@ -50,8 +50,8 @@
         <main>
             <h1>Dashboard</h1>
             <div class="insights">
-                <div class="factures">
-                    <img src="images/fully-payed.png" alt="logo" style="width:30px;">
+                <div class="factures-payées">
+                    <img src="images/fully-payed.png" alt="logo" style="width:35px;">
                     <div class="middle">
                         <div class="left">
                             <h3>Factures Payées</h3>
@@ -69,8 +69,8 @@
                     <small class="text-muted">Last 24 Hours</small>
                 </div>
                 <!-------------fin : factures payées------------>
-                <div class="factures1">
-                    <img src="images/partially.png" alt="logo" style="width:30px;">
+                <div class="factures-part-payées">
+                    <img src="images/partially.png" alt="logo" style="width:35px;">
                     <div class="middle">
                         <div class="left">
                             <h3>Factures Partiellement Payées</h3>
@@ -88,8 +88,8 @@
                     <small class="text-muted">Last 24 Hours</small>
                 </div>
                 <!-------------fin : factures patiellement payées------------>
-                <div class="factures2">
-                    <img src="images/not-payed.png" alt="logo" style="width:30px;">
+                <div class="factures-nn-payées">
+                    <img src="images/not-payed.png" alt="logo" style="width:35px;">
                     <div class="middle">
                         <div class="left">
                             <h3>Factures Non Payées</h3>
