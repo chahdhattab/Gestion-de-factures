@@ -1,9 +1,9 @@
 <?php
 class Dbh{
-    private $host="";
+    private $host="localhost";
     private $user="root";
     private $pwd="";
-    private $dbName="";
+    private $dbName="gestion_factures";
 
     protected function connect(){
         $dsn='mysql : host'.$this->host.';dbname'.$this->dbName;
