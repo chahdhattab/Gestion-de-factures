@@ -208,7 +208,7 @@
                             <img src="images/invoice-4.png" alt="icon"> 
                         </div>
                         <div class="message">
-                            <p><b>Nouvelle facture créée: </b><br> Facture #67953 pour Client: Mohammed HATTAB, le 29/07/2024, montant total de 6080 DH</p>
+                            <p><b class="primary">Nouvelle facture créée: </b><br> Facture #67953 pour Client: Mohammed HATTAB, le 29/07/2024, montant total de 6080 DH</p>
                         </div>
                     </div>
                     <div class="update">
@@ -216,7 +216,7 @@
                             <img src="images/reputation.png" alt="icon"> 
                         </div>
                         <div class="message">
-                            <p><b>Nouveau client ajouté: </b><br> Client Amine Rahaoui, ajouté le 28/07/2024.</p>
+                            <p><b class="primary">Nouveau client ajouté: </b><br> Client Amine Rahaoui, ajouté le 28/07/2024.</p>
                         </div>
                     </div>
                     <div class="update">
@@ -224,7 +224,7 @@
                             <img src="images/invoice-4.png" alt="icon"> 
                         </div>
                         <div class="message">
-                            <p><b>Nouvelle facture créée: </b><br> Facture #67952 pour Cliente: Aya AALOU, le 25/07/2024, montant total de 250 DH</p>
+                            <p><b class="primary">Nouvelle facture créée: </b><br> Facture #67952 pour Cliente: Aya AALOU, le 25/07/2024, montant total de 250 DH</p>
                         </div>
                     </div>
                 </div>
@@ -241,27 +241,10 @@
                     <img src="images/add-facture.png" style="width:40px;" alt="icon">
                     <h2>Ajoutez une facture :</h2>
                 </a>
-                
-
-
-
-
-
-
-
-
             </div>
-
-        
-
-
-
-
-
-
-
 
         </div>
     </div>
+    <script src="js/dashboard-script.js"></script>
 </body>
 </html>
