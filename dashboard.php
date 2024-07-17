@@ -39,17 +39,18 @@
                     <img src="images/money.png" alt="Logo" style="width:30px;">
                     <h3>Paiements</h3>
                 </a>
-                <a href="#">
+                <a href="index.php">
                     <img src="images/logout.png" alt="Logo" style="width:30px;">
                     <h3>Déconnexion</h3>
                 </a>
             </div>
             
         </aside>
-<!-------------------insights--------------------->
+ <!-------------------insights--------------------->
         <main>
             <h1>Dashboard</h1>
             <div class="insights">
+                
                 <div class="factures-payées">
                     <img src="images/fully-payed.png" alt="logo" style="width:35px;">
                     <div class="middle">
@@ -118,57 +119,149 @@
                         <th>Client</th>
                         <th>Montant</th>
                         <th>Statut</th>
-                        <th></th>
+                        <th>Date de création</th>
                     </thead>
                     <tbody>
                         <tr>
                             <td>256374</td>
                             <td>Mohammed HATTAB</td>
                             <td>3570 DH</td>
-                            <td class="warning">Payée</td>
-                            <td class="primary">Détails</td>
+                            <td class="success">Payée</td>
+                            <td class="primary">24/07/2024</td>
                         </tr>
                         <tr>
                             <td>256374</td>
                             <td>Amine FILALI</td>
                             <td>380 DH</td>
-                            <td class="warning">Non Payée</td>
-                            <td class="primary">Détails</td>
+                            <td class="danger">Non Payée</td>
+                            <td class="primary">16/07/2024</td>
                         </tr>
                         <tr>
                             <td>256374</td>
                             <td>Ayoub YACOUBI</td>
                             <td>570 DH</td>
-                            <td class="warning">Payée</td>
-                            <td class="primary">Détails</td>
+                            <td class="success">Payée</td>
+                            <td class="primary">10/07/2024</td>
                         </tr>
                         <tr>
                             <td>256374</td>
                             <td>Meryem SADKI</td>
                             <td>940 DH</td>
                             <td class="warning">Partiellement Payée</td>
-                            <td class="primary">Détails</td>
+                            <td class="primary">02/07/2024</td>
                         </tr>
                         <tr>
                             <td>256374</td>
                             <td>Aya KADIRI</td>
                             <td>800 DH</td>
-                            <td class="warning">Non Payée</td>
-                            <td class="primary">Détails</td>
+                            <td class="danger">Non Payée</td>
+                            <td class="primary">30/06/2024</td>
+                        </tr>
+                        <tr>
+                            <td>256374</td>
+                            <td>Ayman AKILI</td>
+                            <td>380 DH</td>
+                            <td class="success">Payée</td>
+                            <td class="primary">25/06/2024</td>
+                        </tr>
+                        <tr>
+                            <td>256374</td>
+                            <td>Aya AALOU</td>
+                            <td>4600 DH</td>
+                            <td class="warning">Partiellement Payée</td>
+                            <td class="primary">13/06/2024</td>
+                        </tr>
+                        <tr>
+                            <td>256374</td>
+                            <td>Leila JAIFAR</td>
+                            <td>800 DH</td>
+                            <td class="warning">Partiellement Payée</td>
+                            <td class="primary">01/06/2024</td>
                         </tr>
                     </tbody>
                 </table>
                 <a href="#">Afficher Tout</a>
             </div>
-
-
-
-
-
         </main>
-        <aside class="hola">
+    <!--------------------------Fin: Main---------------------------->
+        <div class="right">
+            <div class="top">
+                <button class="menu-btn">
+                    <img src="images/menu-btn.png" style="width:40px; background: white;" alt="menu" >
+                </button>
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey , <b class="primary">Meryem</b></p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="images/user-3.png" alt="user">
+                    </div>
+                </div>
+            </div>
+            <!--------------Fin: Top Right----------->
+            <div class="recent-updates">
+                <h2>Les dernières mises à jour</h2>
+                <div class="updates">
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="images/invoice-4.png" alt="icon"> 
+                        </div>
+                        <div class="message">
+                            <p><b>Nouvelle facture créée: </b><br> Facture #67953 pour Client: Mohammed HATTAB, le 29/07/2024, montant total de 6080 DH</p>
+                        </div>
+                    </div>
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="images/reputation.png" alt="icon"> 
+                        </div>
+                        <div class="message">
+                            <p><b>Nouveau client ajouté: </b><br> Client Amine Rahaoui, ajouté le 28/07/2024.</p>
+                        </div>
+                    </div>
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="images/invoice-4.png" alt="icon"> 
+                        </div>
+                        <div class="message">
+                            <p><b>Nouvelle facture créée: </b><br> Facture #67952 pour Cliente: Aya AALOU, le 25/07/2024, montant total de 250 DH</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        </aside>
+            <!------------------------------fin: updates--------------------------->
+
+            <div class="add">
+                <a href="#" class="item">
+                    <img src="images/add-client.png" style="width:40px;" alt="icon">
+                    <h2>Ajoutez un Client :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+                </a>
+                <a href="#" class="item">
+                    <img src="images/add-facture.png" style="width:40px;" alt="icon">
+                    <h2>Ajoutez une facture :</h2>
+                </a>
+                
+
+
+
+
+
+
+
+
+            </div>
+
+        
+
+
+
+
+
+
+
+
+        </div>
     </div>
 </body>
 </html>
