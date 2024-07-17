@@ -66,7 +66,7 @@
                             </div>
                         </div>
                     </div>
-                    <small class="text-muted">Last 24 Hours</small>
+                   
                 </div>
                 <!-------------fin : factures payées------------>
                 <div class="factures-part-payées">
@@ -81,18 +81,18 @@
                                 <circle cx='38' cy='38' r='36'></circle>
                             </svg>
                             <div class="number">
-                                <p>81%</p>
+                                <p>63%</p>
                             </div>
                         </div>
                     </div>
-                    <small class="text-muted">Last 24 Hours</small>
+                    
                 </div>
                 <!-------------fin : factures patiellement payées------------>
                 <div class="factures-nn-payées">
                     <img src="images/not-payed.png" alt="logo" style="width:35px;">
                     <div class="middle">
                         <div class="left">
-                            <h3>Factures Non Payées</h3>
+                            <h3>Factures <br>Non <br>Payées</h3>
                             <h1>302</h1>
                         </div>
                         <div class="progress">
@@ -100,14 +100,71 @@
                                 <circle cx='38' cy='38' r='36'></circle>
                             </svg>
                             <div class="number">
-                                <p>81%</p>
+                                <p>51%</p>
                             </div>
                         </div>
                     </div>
-                    <small class="text-muted">Last 24 Hours</small>
+                    
                 </div>
                 <!-------------fin : factures non payées------------>
             </div>
+            <!---------------fin : insights------------------------------>
+
+            <div class="recent-factures">
+                <h2>Dernières Factures</h2>
+                <table>
+                    <thead>
+                        <th>N° Facture</th>
+                        <th>Client</th>
+                        <th>Montant</th>
+                        <th>Statut</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>256374</td>
+                            <td>Mohammed HATTAB</td>
+                            <td>3570 DH</td>
+                            <td class="warning">Payée</td>
+                            <td class="primary">Détails</td>
+                        </tr>
+                        <tr>
+                            <td>256374</td>
+                            <td>Amine FILALI</td>
+                            <td>380 DH</td>
+                            <td class="warning">Non Payée</td>
+                            <td class="primary">Détails</td>
+                        </tr>
+                        <tr>
+                            <td>256374</td>
+                            <td>Ayoub YACOUBI</td>
+                            <td>570 DH</td>
+                            <td class="warning">Payée</td>
+                            <td class="primary">Détails</td>
+                        </tr>
+                        <tr>
+                            <td>256374</td>
+                            <td>Meryem SADKI</td>
+                            <td>940 DH</td>
+                            <td class="warning">Partiellement Payée</td>
+                            <td class="primary">Détails</td>
+                        </tr>
+                        <tr>
+                            <td>256374</td>
+                            <td>Aya KADIRI</td>
+                            <td>800 DH</td>
+                            <td class="warning">Non Payée</td>
+                            <td class="primary">Détails</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="#">Afficher Tout</a>
+            </div>
+
+
+
+
+
         </main>
         <aside class="hola">
 
