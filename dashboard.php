@@ -19,7 +19,7 @@
             </div>
      <!-------------------------side-bar----------------------------->
             <div class="sidebar" >
-                <a href="#" class="active">
+                <a href="dashboard.php" class="active">
                     <img src="images/dashboard.png" alt="Logo" style="width:30px;">
                     <h3>Dashboard</h3>
                 </a>
@@ -31,7 +31,7 @@
                     <img src="images/invoice.png" alt="Logo" style="width:30px;">
                     <h3>Factures</h3>
                 </a>
-                <a href="#">
+                <a href="clients.php">
                     <img src="images/customer.png" alt="Logo" style="width:30px;">
                     <h3>Clients</h3>
                 </a>
@@ -47,7 +47,7 @@
             
         </aside>
  <!-------------------insights--------------------->
-        <main>
+         <main>
             <h1>Dashboard</h1>
             <div class="insights">
                 
@@ -56,14 +56,14 @@
                     <div class="middle">
                         <div class="left">
                             <h3>Factures Payées</h3>
-                            <h1>302</h1>
+                            <h1>137</h1>
                         </div>
                         <div class="progress">
                             <svg>
                                 <circle cx='38' cy='38' r='36'></circle>
                             </svg>
                             <div class="number">
-                                <p>81%</p>
+                                <p>41%</p>
                             </div>
                         </div>
                     </div>
@@ -75,14 +75,14 @@
                     <div class="middle">
                         <div class="left">
                             <h3>Factures Partiellement Payées</h3>
-                            <h1>302</h1>
+                            <h1>97</h1>
                         </div>
                         <div class="progress">
                             <svg>
                                 <circle cx='38' cy='38' r='36'></circle>
                             </svg>
                             <div class="number">
-                                <p>63%</p>
+                                <p>35%</p>
                             </div>
                         </div>
                     </div>
@@ -94,14 +94,14 @@
                     <div class="middle">
                         <div class="left">
                             <h3>Factures <br>Non <br>Payées</h3>
-                            <h1>302</h1>
+                            <h1>63</h1>
                         </div>
                         <div class="progress">
                             <svg>
                                 <circle cx='38' cy='38' r='36'></circle>
                             </svg>
                             <div class="number">
-                                <p>51%</p>
+                                <p>24%</p>
                             </div>
                         </div>
                     </div>
@@ -164,23 +164,10 @@
                             <td class="success">Payée</td>
                             <td class="primary">25/06/2024</td>
                         </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>Aya AALOU</td>
-                            <td>4600 DH</td>
-                            <td class="warning">Partiellement Payée</td>
-                            <td class="primary">13/06/2024</td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>Leila JAIFAR</td>
-                            <td>800 DH</td>
-                            <td class="warning">Partiellement Payée</td>
-                            <td class="primary">01/06/2024</td>
-                        </tr>
+                        
                     </tbody>
                 </table>
-                <a href="#">Afficher Tout</a>
+                <a href="factures.php">Afficher Tout</a>
             </div>
         </main>
     <!--------------------------Fin: Main---------------------------->
@@ -231,7 +218,10 @@
             </div>
 
             <!------------------------------fin: updates--------------------------->
+            
 
+
+            <!------------------------Ajouter: facture-client----------------------->
             <div class="add">
                 <a href="#" class="item">
                     <img src="images/add-client.png" style="width:40px;" alt="icon">
@@ -242,8 +232,8 @@
                     <h2>Ajoutez une facture :</h2>
                 </a>
             </div>
-
         </div>
+        <!-------------------------------Fin : right side---------------------------------->
     </div>
     <script src="js/dashboard-script.js"></script>
 </body>

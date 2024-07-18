@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-
-
 :root {
     --color-primary: #533570;
     --color-primary2: #533570b9;
@@ -60,7 +58,7 @@ body{
     width:96%;
     margin: 0 auto;
     gap: 1.8rem;
-    grid-template-columns: 14rem auto 23rem;
+    grid-template-columns: 14rem auto;
 }
 a{
     color: var(--color-dark)
@@ -193,7 +191,10 @@ aside .sidebar a:hover img {
     margin-left: 1rem;
 }
 
-/*--------------------------Main---------------------------------*/
+/*-------------Fin: Sidebar----------*/
+
+
+/*-------------main client-----------*/
 main {
    
     margin-top: 1.4rem;
@@ -201,92 +202,54 @@ main {
 main h1{
     color: var(--color-primary);
 }
-/*---------------------------insights----------------------------*/
 
-main .insights{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.6rem;
-}
-main .insights > div {
-    background: var(--color-white);
-    padding: var(--card-padding);
-    border-radius: var(--card-border-radius);
-    margin-top: 1rem;
-    box-shadow: var(--box-shadow);
-    transition: all 300ms ease;
-}
-main .insights > div:hover {
-    box-shadow: none;
-}
-
-.factures-payées img{
-    width: 30px;
-}
-.middle {
+main .top-list{
     display: flex;
-    align-items: center;
     justify-content: space-between;
-}
-main .insights .progress{
-    position: relative;
-    width: 92px;
-    height: 92px;
-    border-radius: 50%;
-}
-main .insights h3 {
-    margin: 1rem 0 0.6rem; 
-    font-size: 1rem;
-}
-main .insights svg{
-    height: 7rem;
-    width: 7rem;
-}
-main .insights svg circle {
-    fill: none;
-    stroke: var(--color-danger);
-    stroke-width: 14; stroke-linecap: round;
-    transform: translate(5px, 5px); 
-    stroke-dasharray: 110; 
-    stroke-dashoffset: 92;
-}
-
-main .insights .factures-payées svg circle {
-stroke-dashoffset: 20; 
-stroke-dasharray: 200;
-}
-main .insights .factures-part-payées svg circle{
-stroke-dashoffset: 20; 
-stroke-dasharray: 80;
-}
-main .insights .factures-nn-payées svg circle {
-stroke-dashoffset: -20; 
-stroke-dasharray: 100;
-}
-
-main .insights .progress .number {
-    position: absolute;
-    top: 0; 
-    left: 0;
-    height: 100%; 
-    width: 100%;
-    display: flex;
-    justify-content: center;
     align-items: center;
 }
+main .top-list .search-client{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 1rem;
 
-/*-----------------------------recent factures--------------------------*/
-
-main .recent-factures {
-    margin-top: 2rem;
 }
-main .recent-factures h2 {
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
+main .top-list h2{
+    font-size: 1.5rem;
     color: var(--color-primary);
 }
 
-main .recent-factures table {
+main .top-list .search-client .search{
+    background-color: transparent;
+    border: 2px dashed var(--color-primary);
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border-radius: var(--border-radius-3);
+    transition: all 300ms ease;
+    transition: all 0.3s ease-in-out;
+    color: var(--color-primary);
+
+}
+main .top-list .search-client .search:hover{
+    transform: scale(1.05);
+    background-color: var(--color-light);
+}
+
+
+
+
+
+
+/*------------------Table-----------------*/
+
+
+main .clients-table {
+    margin-top: 2rem;
+}
+
+main .clients-table table {
     background: var(--color-white);
     width: 100%;
     border-radius: var(--card-border-radius);
@@ -296,7 +259,7 @@ main .recent-factures table {
     transition: all 300ms ease;
 }
 
-main .recent-factures table:hover{
+main .clients-table table:hover{
     box-shadow:none;
 }
 
@@ -309,126 +272,85 @@ main table tbody tr:last-child td {
     border: none;
 }
 
-main .recent-factures a {
+main .clients-table a {
     text-align: center;
     display: block;
-    margin: 2rem auto;
+    margin: 1.5rem auto;
     color: var(--color-primary);
 }
 
-/*-----------------------------------------Fin: main-------------------------------*/
+/*----------------------------Fin: table--------------------*/
 
-.right{
-    margin-top: 1.4rem;
-}
-
-.right .top{
-    display: flex;
-    justify-content: end;
-    gap:2rem;
-    background-color: var(--color-white);
-    border-radius: var(--card-border-radius);
-    align-items: center;
-    padding: 15px;
-}
-.right .top .profile{
+main .bottom-list{
+    margin-top: 2rem;
     display:flex;
-    text-align: right;
-    gap:2rem;
-}
-.right .top .menu-btn{
-    display: none;
-}
-.right .recent-updates{
-    margin-top:1rem;
-}
-.right .recent-updates h2{
-    font-size: 1.2rem;
-    color:var(--color-primary);
-    margin-bottom: 0.8rem;
+    justify-content: space-between;
 }
 
-.right .recent-updates .updates{
-    background-color: var(--color-white);
-    padding: var(--card-padding);
-    border-radius: var(--card-border-radius);
-    box-shadow: var(--box-shadow);
-    transition: all 300ms ease;
-}
-
-.right .recent-updates .updates:hover{
-    box-shadow: none;
-}
-
-.right .recent-updates .updates .update{
-    display:grid;
-    grid-template-columns: 2.6rem auto;
-    gap: 1.6rem;
-    margin-bottom:1rem;
-}
-
-/*----------------------Fin: Updates-------------------*/
-
-.right .add{
-    margin-top:2rem;
-}
-.right .add h2{
-    font-size: 1rem;
-    color:var(--color-primary);
-}
-.right .add .item{
-    background-color: transparent;
-    border: 2px dashed var(--color-primary);
+.pagination {
+    margin-top:0;
+    margin-left: 2rem;
     display: flex;
-    justify-content: center;
     align-items: center;
+}
+
+#prevBtn, #nextBtn {
+    background-color: var(--color-primary2);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#pageNum {
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+
+main .bottom-list .add-export{
+    display: flex;
     gap: 1rem;
-    margin-bottom: 1.2rem;
-    padding: 1.4rem var(--card-padding); 
+}
+
+main .bottom-list .add-export .add-client{
+    display: flex;
+    align-items: center;
+    gap:1.5rem;
+    background-color: transparent;
+    justify-content: center;
+    padding: 15px;
     border-radius: var(--border-radius-3);
     transition: all 300ms ease;
     transition: all 0.3s ease-in-out;
+    color: var(--color-primary);
+    border: 3px solid var(--color-primary);
+    box-shadow: var(--box-shadow);
 }
-.right .add .item:hover{
-    transform: scale(1.05);
-    background-color: var(--color-light);
+main .bottom-list .add-export .export{
+    display: flex;
+    align-items: center;
+    gap:1.5rem;
+    background-color: transparent;
+    justify-content: center;
+    padding: 15px;
+    border-radius: var(--border-radius-3);
+    transition: all 300ms ease;
+    transition: all 0.3s ease-in-out;
+    color: var(--color-primary);
+    border: 3px solid var(--color-primary);
+    box-shadow: var(--box-shadow);
 }
-        
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+main .bottom-list .add-export .add-client:hover{
+    box-shadow: none;
+}
+main .bottom-list .add-export .export:hover{
+    box-shadow: none;
+}
