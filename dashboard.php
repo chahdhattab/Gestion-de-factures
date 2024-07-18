@@ -27,7 +27,7 @@
                     <img src="images/loupe.png" alt="Logo" style="width:30px;">
                     <h3>Recherche</h3>
                 </a>
-                <a href="#">
+                <a href="factures.php">
                     <img src="images/invoice.png" alt="Logo" style="width:30px;">
                     <h3>Factures</h3>
                 </a>
