@@ -35,10 +35,6 @@
                     <img src="images/customer.png" alt="Logo" style="width:30px;">
                     <h3>Clients</h3>
                 </a>
-                <a href="#">
-                    <img src="images/money.png" alt="Logo" style="width:30px;">
-                    <h3>Paiements</h3>
-                </a>
                 <a href="index.php">
                     <img src="images/logout.png" alt="Logo" style="width:30px;">
                     <h3>Déconnexion</h3>
@@ -162,6 +158,13 @@
                             <td>Ayman AKILI</td>
                             <td>380 DH</td>
                             <td class="success">Payée</td>
+                            <td class="primary">25/06/2024</td>
+                        </tr>
+                        <tr>
+                            <td>256374</td>
+                            <td>Ayman AKILI</td>
+                            <td>380 DH</td>
+                            <td class="warning"> Partiellement Payée</td>
                             <td class="primary">25/06/2024</td>
                         </tr>
                         

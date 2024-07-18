@@ -35,10 +35,6 @@
                     <img src="images/customer.png" alt="Logo" style="width:30px;">
                     <h3>Clients</h3>
                 </a>
-                <a href="#">
-                    <img src="images/money.png" alt="Logo" style="width:30px;">
-                    <h3>Paiements</h3>
-                </a>
                 <a href="index.php">
                     <img src="images/logout.png" alt="Logo" style="width:30px;">
                     <h3>Déconnexion</h3>
@@ -156,6 +152,16 @@
                             <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
                             <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
                         </tr>
+                        <tr>
+                            <td>256374</td>
+                            <td>HATTAB</td>
+                            <td>Mohammed</td>
+                            <td>mohammedhattab@gmail.com</td>
+                            <td>0635749377</td>
+                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
+                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
+                        </tr>
+                        
                     </tbody>
                 </table>
             </div>

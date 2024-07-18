@@ -25,4 +25,163 @@
 
     --box-shadow: 0 2rem 3rem var(--color-light)
 }
+.container{
+    display: grid;
+    width:96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 14rem auto;
+}
+
+/*---------------------main-----------------------*/
+main {
+   
+    margin-top: 1.4rem;
+}
+main h1{
+    color: var(--color-primary);
+    
+}
+
+main .top-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+main .top-list .search-facture{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 1rem;
+}
+main .top-list h2{
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+main .top-list .search-facture .search{
+    background-color: transparent;
+    border: 2px dashed var(--color-primary);
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border-radius: var(--border-radius-3);
+    transition: all 300ms ease;
+    transition: all 0.3s ease-in-out;
+    color: var(--color-primary);
+
+}
+main .top-list .search-facture .search:hover{
+    transform: scale(1.05);
+    background-color: var(--color-light);
+}
+
+main .factures-table {
+    margin-top: 2rem;
+}
+
+main .factures-table table {
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+main .factures-table table:hover{
+    box-shadow:none;
+}
+
+main table tbody td {
+    height: 2.8rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark-variant);
+}
+main table tbody tr:last-child td {
+    border: none;
+}
+
+
+/*----------------------Fin: Table-----------------*/
+
+main .bottom-list{
+    margin-top: 2rem;
+    display:flex;
+    justify-content: space-between;
+}
+
+.pagination {
+    margin-top:0;
+    margin-left: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+#prevBtn, #nextBtn {
+    background-color: var(--color-primary2);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#pageNum {
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+
+main .bottom-list .add-export{
+    display: flex;
+    gap:1rem;
+
+}
+
+main .bottom-list .add-export .add-facture{
+    display: flex;
+    align-items: center;
+    gap:1.5rem;
+    font-size: 15px;
+    background-color: transparent;
+    justify-content: center;
+    padding: 15px;
+    border-radius: var(--border-radius-3);
+    transition: all 300ms ease;
+    transition: all 0.3s ease-in-out;
+    color: var(--color-primary);
+    border: 3px solid var(--color-primary);
+    box-shadow: var(--box-shadow);
+}
+main .bottom-list .add-export .export{
+    display: flex;
+    align-items: center;
+    gap:1.5rem;
+    background-color: transparent;
+    justify-content: center;
+    padding: 15px;
+    border-radius: var(--border-radius-3);
+    transition: all 300ms ease;
+    transition: all 0.3s ease-in-out;
+    color: var(--color-primary);
+    border: 3px solid var(--color-primary);
+    box-shadow: var(--box-shadow);
+}
+
+main .bottom-list .add-export .add-facture:hover{
+    box-shadow: none;
+}
+main .bottom-list .add-export .export:hover{
+    box-shadow: none;
+}
+
+
+
 
