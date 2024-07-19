@@ -198,6 +198,7 @@ aside .sidebar a:hover img {
 main {
    
     margin-top: 1.4rem;
+    margin-top: 0.8rem;
 }
 main h1{
     color: var(--color-primary);
