@@ -57,4 +57,15 @@ INSERT INTO utilisateurs (matricule, mot_de_passe, nom, prenom) VALUES
 ('H9I0J1K2', 'Str0ng$%', 'KHADIRI', 'Issam'),
 ('L3M4N5O6', 'Ja$$Z0rM', 'HATTAB', 'Chahd');
 
+-- Insertion des clients avec des numéros de client entièrement modifiés et des emails
+INSERT INTO clients (numero_client, matricule_utilisateur, nom, prenom, email) VALUES
+('54321', 'H9I0J1K2', 'ALLAY', 'Mohammed', 'allaymohammed@gmail.com'),
+('65432', 'H9I0J1K2', 'FILALI', 'Meryem', 'filalimeryem@gmail.com'),
+('76543', 'H9I0J1K2', 'YACOUBI', 'Ayoub', 'yacoubiayoub@gmail.com'),
+('87654', 'H9I0J1K2', 'BOUAZZA', 'Hafsa', 'bouazzahafsa@gmail.com'),
+('98765', 'H9I0J1K2', 'HATTAB', 'Oussama', 'hattaboussama@gmail.com'),
+('09876', 'H9I0J1K2', 'BEHRI', 'Maroua', 'behrimaroua@gmail.com'),
+('10987', 'H9I0J1K2', 'FOUAR', 'Samia', 'fouarsamia@gmail.com');
+
+
 
