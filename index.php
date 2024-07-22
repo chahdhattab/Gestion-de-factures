@@ -1,3 +1,9 @@
+<?php
+include "classes/Dbh.class.php";
+include "classes/Test.class.php";
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +14,7 @@
 </head>
 <body>
 
-    <form action="" method="post">
+    <form action="dashboard.php" method="post">
         <div class="login-box">
             <div class="login-header">
                 <header>Bienvenue! </header><br>
@@ -23,10 +29,13 @@
             </div>
             <div class="login-submit">
                 <button type ="submit "class="login-btn" id="submit">Se connecter</button>
-                
             </div>
         </div>
     </form>
+    
+    
+
+
     <script src="javascript/login-script.js"></script>
 
 

@@ -49,5 +49,12 @@ CREATE TABLE IF NOT EXISTS paiements (
     FOREIGN KEY (matricule_utilisateur) REFERENCES utilisateurs(matricule)
 ) ENGINE=InnoDB;
 
+-- Insertion des utilisateurs avec des matricules et mots de passe sécurisés
+
+INSERT INTO utilisateurs (matricule, mot_de_passe, nom, prenom) VALUES
+('M1A2B3C4', 'P@!wrdH9', 'ABRGHAZ', 'Amine'),
+('D5E6F7G8', 'S3cur3@#', 'RABHI', 'Hiba'),
+('H9I0J1K2', 'Str0ng$%', 'KHADIRI', 'Issam'),
+('L3M4N5O6', 'Ja$$Z0rM', 'HATTAB', 'Chahd');
 
 
