@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-    --color-primary: #533570;
+    --color-primary: #533475;
     --color-primary2: #533570b9;
     --color-danger: #ff7782;
     --color-success: #00d48d;
@@ -23,7 +23,8 @@
     --card-padding: 1.8rem;
     --padding-1: 1.2rem;
 
-    --box-shadow: 0 2rem 3rem var(--color-light)
+    --box-shadow: 0 2rem 3rem var(--color-light);
+    --box-shadow2: 0px 5px 20px 5px var(--color-light)
 }
 
 * {
@@ -37,11 +38,46 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height: 100vh;
+    min-height: 100vh;
     background-color: var(--color-background);
 }
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-.login-box {
+.container{
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
+    border-radius: var(--card-border-radius);
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+.container, .sqli, .login-box {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.sqli{
+    display: flex;
+    align-items: center;
+    
+}
+.sqli img{
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--card-border-radius);
+}
+.login-box{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -49,24 +85,20 @@ body {
     height: 480px;
     padding: 30px;
 }
-
-.login-header {
+.login-box .login-header{
     text-align: center;
     margin: 20px 0 40px 0;
 }
-
-.login-header header {
-    color: #1A334A;
-    font-size: 40px;
+.login-box .login-header header {
+    color: var(--color-primary);
+    font-size: 50px;
     font-weight: 700;
 }
-
-.login-header .label2 {
-    color: #1A334A;
+.login-box .login-header .label2 {
+    color: var(--color-primary);
     font-size: 30px;
-    font-weight: 700;
+    font-weight: 500;
 }
-
 .input-box .input-field {
     width: 100%;
     height: 60px;
@@ -75,27 +107,26 @@ body {
     margin-bottom: 15px;
     border-radius: 30px;
     border: none;
-    box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--box-shadow2);
     outline: none;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 .input-field{
-    color: #1A334A;
+    color: var(--color-primary);
 }
 
 .login-btn {
     width: 100%;
     height: 60px;
-    background: #1A334A;
+    background: var(--color-primary);
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    transition: all 0.5s ease-in-out;
-    color: #dfdfdf;
+    transition: all 0.3s ease-in-out;
+    color: var(--color-white);
     font-size: 18px;
+    box-shadow: var(--box-shadow2);
 }
-
-/* New hover styles */
 .input-box .input-field:hover {
     box-shadow: 0px 5px 20px 5px rgba(0, 0, 0, 0.2);
     transform: scale(1.05);
@@ -109,8 +140,7 @@ body {
 }
 
 .login-btn:hover {
-    background: #102136;
+    background: var(--color-primary2);
     box-shadow: 0px 5px 20px 5px rgba(0, 0, 0, 0.2);
     transform: scale(1.05);
-    color: #ffffff;
 }

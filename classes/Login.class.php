@@ -32,7 +32,7 @@ class Login extends Dbh {
         } catch (Exception $e) {
             // Gestion des erreurs et redirection
             $errorMessage = $e->getMessage();
-            header("Location: ../index.php?error=" . urlencode($errorMessage));
+            header("Location: ../login.php?error=" . urlencode($errorMessage));
             exit();
         }
     }

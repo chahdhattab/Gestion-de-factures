@@ -11,7 +11,7 @@ class LoginCont extends Login {
 
     public function loginUser() {
         if ($this->emptyInput() == false) {
-            header("Location: ../index.php?error=emptyinput");
+            header("Location: ../login.php?error=emptyinput");
             exit();
         }
         $this->getUser($this->uid, $this->pwd);
