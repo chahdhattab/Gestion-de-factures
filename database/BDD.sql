@@ -28,25 +28,21 @@ CREATE TABLE IF NOT EXISTS factures (
     id INT AUTO_INCREMENT PRIMARY KEY,
     numero_facture VARCHAR(50) UNIQUE NOT NULL,
     numero_client VARCHAR(50),
-    matricule_utilisateur VARCHAR(50),
-    date_facture DATE NOT NULL,
     montant_total DECIMAL(10, 2) NOT NULL,
     statut ENUM('payée', 'partiellement_payée', 'non_payée') NOT NULL,
     date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (numero_client) REFERENCES clients(numero_client),
-    FOREIGN KEY (matricule_utilisateur) REFERENCES utilisateurs(matricule)
+    FOREIGN KEY (numero_client) REFERENCES clients(numero_client)
 ) ENGINE=InnoDB;
 
 -- Table pour les paiements
+
 CREATE TABLE IF NOT EXISTS paiements (
     id INT AUTO_INCREMENT PRIMARY KEY,
     numero_facture VARCHAR(50),
-    matricule_utilisateur VARCHAR(50),
     date_paiement DATE NOT NULL,
     montant DECIMAL(10, 2) NOT NULL,
     date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (numero_facture) REFERENCES factures(numero_facture),
-    FOREIGN KEY (matricule_utilisateur) REFERENCES utilisateurs(matricule)
+    FOREIGN KEY (numero_facture) REFERENCES factures(numero_facture)
 ) ENGINE=InnoDB;
 
 -- Insertion des utilisateurs avec des matricules et mots de passe sécurisés
@@ -58,6 +54,7 @@ INSERT INTO utilisateurs (matricule, mot_de_passe, nom, prenom) VALUES
 ('L3M4N5O6', 'Ja$$Z0rM', 'HATTAB', 'Chahd');
 
 -- Insertion des clients avec des numéros de client entièrement modifiés et des emails
+
 INSERT INTO clients (numero_client, matricule_utilisateur, nom, prenom, email) VALUES
 ('54321', 'H9I0J1K2', 'ALLAY', 'Mohammed', 'allaymohammed@gmail.com'),
 ('65432', 'H9I0J1K2', 'FILALI', 'Meryem', 'filalimeryem@gmail.com'),
@@ -74,6 +71,43 @@ INSERT INTO clients (numero_client, matricule_utilisateur, nom, prenom, email) V
 ('76540', 'H9I0J1K2', 'AKILI', 'Aymane', 'akiliaymane@gmail.com'),
 ('87650', 'H9I0J1K2', 'KHATIBI', 'Ilyass', 'khatibiilyass@gmail.com'),
 ('98760', 'H9I0J1K2', 'LAHLOU', 'Lina', 'lahloulina@gmail.com');
+
+
+
+
+-- Insérer des factures dans la table factures
+INSERT INTO factures (numero_facture, numero_client, montant_total, statut)
+VALUES 
+('234', '54321', 1500.00, 'payée'),
+('789', '65432', 2500.50, 'non_payée'),
+('345', '76543', 3000.75, 'partiellement_payée'),
+('567', '87654', 1200.00, 'payée'),
+('678', '98765', 500.00, 'non_payée'),
+('456', '09876', 1750.00, 'partiellement_payée'),
+('890', '10987', 2200.00, 'payée'),
+('123', '21098', 1300.00, 'non_payée'),
+('101', '54321', 1500.00, 'payée'),
+('202', '65432', 2500.50, 'non_payée'),
+('303', '76543', 3000.75, 'partiellement_payée'),
+('404', '87654', 1200.00, 'payée'),
+('505', '98765', 500.00, 'non_payée'),
+('606', '09876', 1750.00, 'partiellement_payée'),
+('707', '10987', 2200.00, 'payée'),
+('808', '21098', 1300.00, 'non_payée'),
+('909', '32109', 1400.00, 'payée'),
+('110', '43210', 1600.00, 'partiellement_payée'),
+('121', '54320', 1800.00, 'non_payée'),
+('132', '65430', 2000.00, 'payée'),
+('143', '76540', 1900.00, 'partiellement_payée'),
+('154', '87650', 2100.00, 'payée'),
+('165', '98760', 2500.00, 'non_payée'),
+('176', '09876', 2700.00, 'partiellement_payée'),
+('187', '10987', 2900.00, 'payée'),
+('198', '21098', 3100.00, 'non_payée'),
+('209', '32109', 3300.00, 'partiellement_payée'),
+('210', '43210', 3500.00, 'payée');
+
+
 
 
 
