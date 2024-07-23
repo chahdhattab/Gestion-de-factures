@@ -66,6 +66,15 @@ INSERT INTO clients (numero_client, matricule_utilisateur, nom, prenom, email) V
 ('98765', 'H9I0J1K2', 'HATTAB', 'Oussama', 'hattaboussama@gmail.com'),
 ('09876', 'H9I0J1K2', 'BEHRI', 'Maroua', 'behrimaroua@gmail.com'),
 ('10987', 'H9I0J1K2', 'FOUAR', 'Samia', 'fouarsamia@gmail.com');
+('21098', 'H9I0J1K2', 'LAHRACH', 'Karim', 'lahrachkarim@gmail.com'),
+('32109', 'H9I0J1K2', 'NAJI', 'Salma', 'najislama@gmail.com'),
+('43210', 'H9I0J1K2', 'HAJJAJI', 'Manal', 'hajjajimanal@gmail.com'),
+('54320', 'H9I0J1K2', 'RAGHIBI', 'Mohammed', 'raghibimohammed@gmail.com'),
+('65430', 'H9I0J1K2', 'JAAFAR', 'Leila', 'jaafarleila@gmail.com'),
+('76540', 'H9I0J1K2', 'AKILI', 'Aymane', 'akiliaymane@gmail.com'),
+('87650', 'H9I0J1K2', 'KHATIBI', 'Ilyass', 'khatibiilyass@gmail.com'),
+('98760', 'H9I0J1K2', 'LAHLOU', 'Lina', 'lahloulina@gmail.com');
+
 
 
 
