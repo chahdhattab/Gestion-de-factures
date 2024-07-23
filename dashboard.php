@@ -3,7 +3,7 @@ session_start(); // Démarrer la session pour accéder aux variables de session
 
 // Vérifiez si l'utilisateur est connecté
 if (!isset($_SESSION["username"])) {
-    header("Location: index.php"); // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
+    header("Location: login.php"); // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
     exit();
 }
 ?>
@@ -190,8 +190,10 @@ if (!isset($_SESSION["username"])) {
                 </button>
                 <div class="profile">
                     <div class="info">
-                        <p>Hey , <b class="primary">Meryem</b></p>
-                        <small class="text-muted">Admin</small>
+                        <p style="font-size:15px">Bienvenue , <b class="primary" style="font-size:15px">
+                            <?php echo htmlspecialchars($_SESSION["username"]); ?> <!-- Affichage du prénom de l'utilisateur -->
+                        </b></p>
+                        <small class="text-muted" >Admin</small>
                     </div>
                     <div class="profile-photo">
                         <img src="images/user-3.png" alt="user">
