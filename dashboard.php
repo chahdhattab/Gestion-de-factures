@@ -1,3 +1,12 @@
+<?php
+session_start(); // Démarrer la session pour accéder aux variables de session
+
+// Vérifiez si l'utilisateur est connecté
+if (!isset($_SESSION["username"])) {
+    header("Location: index.php"); // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
