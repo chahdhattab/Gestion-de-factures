@@ -18,16 +18,23 @@ function MyAutoLoader($ClassName){
 
 spl_autoload_register('myAutoLoader');
 
-function myAutoLoader($className){
-    $url= $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+function myAutoLoader($className) {
+    // Convertir le chemin en format standard (ex. `App\Namespace\ClassName` en `App/Namespace/ClassName`)
+    $className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
 
-    if(strpos($url, 'includes')!==false){
-        $path = '../classes/';
+    // Définir le chemin de base pour les classes
+    $baseDir = __DIR__ . '/../classes/';
+
+    // Construire le chemin complet du fichier
+    $file = $baseDir . $className . '.class.php';
+
+    // Inclure le fichier si il existe
+    if (file_exists($file)) {
+        require_once $file;
+    } else {
+        // Gérer l'erreur si le fichier n'existe pas
+        throw new Exception("Unable to load class: $className");
     }
-    else{
-        $path = 'classes/';
-    }
-    $extension = '.class.php';
-    require_once $path.$className.$extension;
 }
 ?>
+

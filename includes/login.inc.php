@@ -2,10 +2,8 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-// Inclure les fichiers nécessaires
-include "../classes/Dbh.class.php";
-include "../classes/Login.class.php";
-include "../classes/Logincontr.class.php";
+
+require_once __DIR__ . '/class-autoload.inc.php';
 
 // Vérifiez si le formulaire est soumis
 if (isset($_POST["submit"])) {
