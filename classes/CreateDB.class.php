@@ -3,29 +3,31 @@
 //classe qui prepare l'execution de la créaction d'un utilisateur
 
 class CreateDB extends Dbh{
-    protected function setClient($num,$nom,$pre,$email,$tel,$usermtrcl) {
+    protected function setClient($num, $nom, $pre, $email, $tel, $usermtrcl) {
         try {
-            // Vérifier si 
+            // Vérifier si le client existe déjà
             $sql = 'SELECT numero_client FROM clients WHERE numero_client = ? AND matricule_utilisateur = ?';
             $stmt = $this->connect()->prepare($sql);
-            $stmt->execute([$num,$usermtrcl]);
+            $stmt->execute([$num, $usermtrcl]);
             $result = $stmt->fetch();
-
+    
             if ($result) {
-                throw new Exception("Client existe déja");
+                throw new Exception("Client existe déjà");
             }
-
-            // Insérer un nouvel client 
-
+    
+            // Insérer un nouvel client
             $sql = 'INSERT INTO clients (numero_client, matricule_utilisateur, nom, prenom, email, telephone) VALUES (?, ?, ?, ?, ?, ?)';
             $stmt = $this->connect()->prepare($sql);
-            $stmt->execute([$num,$usermtrcl,$nom,$pre,$email,$tel]);
+            if (!$stmt->execute([$num, $usermtrcl, $nom, $pre, $email, $tel])) {
+                throw new Exception("Erreur lors de l'insertion du client : " . implode(", ", $stmt->errorInfo()));
+            }
             
-            echo "Client registré en succès !";
+            echo "Client enregistré avec succès !";
         } catch (Exception $e) {
             echo "Error: " . $e->getMessage();
         }
     }
+    
 
 
 }

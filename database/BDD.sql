@@ -71,6 +71,26 @@ INSERT INTO clients (numero_client, matricule_utilisateur, nom, prenom, email) V
 ('87650', 'H9I0J1K2', 'KHATIBI', 'Ilyass', 'khatibiilyass@gmail.com'),
 ('98760', 'H9I0J1K2', 'LAHLOU', 'Lina', 'lahloulina@gmail.com');
 
+-- Ajout de la colonne téléphone 
+ALTER TABLE clients
+ADD COLUMN telephone VARCHAR(20) AFTER prenom;
+
+-- Mettre à jour les numéros de téléphone pour les clients existants
+UPDATE clients SET telephone = '0601234567' WHERE numero_client = '54321';
+UPDATE clients SET telephone = '0602345678' WHERE numero_client = '65432';
+UPDATE clients SET telephone = '0603456789' WHERE numero_client = '76543';
+UPDATE clients SET telephone = '0604567890' WHERE numero_client = '87654';
+UPDATE clients SET telephone = '0605678901' WHERE numero_client = '98765';
+UPDATE clients SET telephone = '0606789012' WHERE numero_client = '09876';
+UPDATE clients SET telephone = '0607890123' WHERE numero_client = '10987';
+UPDATE clients SET telephone = '0608901234' WHERE numero_client = '21098';
+UPDATE clients SET telephone = '0609012345' WHERE numero_client = '32109';
+UPDATE clients SET telephone = '0600123456' WHERE numero_client = '43210';
+UPDATE clients SET telephone = '0601234567' WHERE numero_client = '54320';
+UPDATE clients SET telephone = '0602345678' WHERE numero_client = '65430';
+UPDATE clients SET telephone = '0603456789' WHERE numero_client = '76540';
+UPDATE clients SET telephone = '0604567890' WHERE numero_client = '87650';
+UPDATE clients SET telephone = '0605678901' WHERE numero_client = '98760';
 
 
 

@@ -260,8 +260,18 @@ if (!isset($_SESSION["username"])) {
                             <label for="tel">Téléphone :</label>
                             <input type="text" id="tel" name="tel" required><br><br>
                             
-                            <button type="submit">Ajouter le Client</button>  
+                            <button type="submit" id="submit" name="submit">Ajouter le Client</button>  
                         </form>
+                        <?php
+                        session_start();
+
+                        // Vérifier si un message est présent dans la session
+                        if (isset($_SESSION['message'])) {
+                            echo '<p>' . $_SESSION['message'] . '</p>';
+                            // Effacer le message après l'affichage
+                            unset($_SESSION['message']);
+                        }
+                        ?>
                     </div>
                 </a>
                 <a href="#" class="item-facture">

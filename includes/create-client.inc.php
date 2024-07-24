@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start(); 
 
 if (!isset($_SESSION["matricule"])) {
@@ -13,11 +17,12 @@ if (isset($_POST["submit"])) {
     $pre = $_POST['pre'];
     $email = $_POST['email'];
     $tel = $_POST['tel'];
-    $matricule = $_SESSION['matricule'];
+    $matricule = $_SESSION["matricule"];
 
     // Créez une instance de LoginCont et essayez de connecter l'utilisateur
-    $loginuser = new LoginCont($uid, $pwd);
-    $loginuser->loginUser();
+    $createclient = new CreateClient($num,$nom,$pre,$email,$tel,$matricule);
+    $createclient->createNewClient();
+    echo"success !";
 } else {
     echo "Le formulaire n'a pas été soumis.";
 }
