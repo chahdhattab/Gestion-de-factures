@@ -23,6 +23,7 @@ class Login extends Dbh {
             if (password_verify($pwd, $user["mot_de_passe"])) {
                 session_start();
                 $_SESSION["username"] = htmlspecialchars($user["prenom"]);  // Stocker le prénom dans la session
+                $_SESSION["matricule"] = htmlspecialchars($user["matricule"]);  // Stocker le matricule d'utilisateur dans la session
                 header("Location: ../dashboard.php");
                 exit();
             } else {

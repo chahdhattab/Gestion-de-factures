@@ -237,18 +237,55 @@ if (!isset($_SESSION["username"])) {
 
             <!------------------------Ajouter: facture-client----------------------->
             <div class="add">
-                <a href="#" class="item">
+                <a href="#" class="item-client">
                     <img src="images/add-client.png" style="width:40px;" alt="icon">
                     <h2>Ajoutez un Client :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+                    <div class="add-client-form">
+                        <!-------------ajouter un client---------------->
+                        <h2>Ajouter un client :</h2><br>
+                        <form action="includes/create-client.inc.php" method="post">
+                            <label for="num">Numéro de Client :</label>
+                            <input type="text" id="num" name="num" required>
+                            
+                            <label for="nom">Nom :</label>
+                            <input type="text" id="nom" name="nom" required>
+                            
+                            <label for="pre">Prénom :</label>
+                            <input type="text" id="pre" name="pre" required>
+                            
+                            <label for="email">Email :</label>
+                            <input type="email" id="email" name="email" required>
+                            
+                            <label for="tel">Téléphone :</label>
+                            <input type="text" id="tel" name="tel" required><br><br>
+                            
+                            <button type="submit">Ajouter le Client</button>  
+                        </form>
+                    </div>
                 </a>
-                <a href="#" class="item">
+                <a href="#" class="item-facture">
                     <img src="images/add-facture.png" style="width:40px;" alt="icon">
                     <h2>Ajoutez une facture :</h2>
+                    <!-------------ajouter une facture---------------->
                 </a>
             </div>
         </div>
         <!-------------------------------Fin : right side---------------------------------->
     </div>
-    <script src="js/dashboard-script.js"></script>
+    <script>
+        const addclient = document.querySelector('.item-client');
+        const clientform = document.querySelector('.add-client-form');
+
+        // Empêche la propagation de l'événement de clic à l'intérieur du formulaire
+        clientform.addEventListener('click', (event) => {
+            event.stopPropagation();
+        });
+
+        addclient.addEventListener('click', () => {
+            clientform.classList.toggle('open');
+        });
+
+    </script>
+    
 </body>
 </html>

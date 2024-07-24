@@ -57,17 +57,17 @@ class createClient extends createDB{
         return $result;
     }
     
-    function isAllUppercase($string) {
+    public function isAllUppercase($string) {
         // Vérifie que la chaîne est entièrement en majuscules
         return preg_match("/^[A-Z]+$/", $string);
     }
     
-    private function isProperCase($string) {
+    public function isProperCase($string) {
         // Vérifie que la première lettre est en majuscule et le reste en minuscules
         return preg_match("/^[A-Z][a-z]*$/", $string);
     }
 
-    private function validfullname() {
+    public function validfullname() {
         if(isAllUppercase($this->nomC) && isProperCase($this->prenomC)){
             $result = true; 
         } else {
@@ -76,7 +76,7 @@ class createClient extends createDB{
         return $result;
     }
 
-    private function validEmail() {
+    public function validEmail() {
         if (filter_var($this->emailC, FILTER_VALIDATE_EMAIL)) {
             $result = true;
         } else {
@@ -85,7 +85,7 @@ class createClient extends createDB{
         return $result;
     }
 
-    private function validNumber() {
+    public function validNumber() {
         // Vérifie que le numéro est constitué exactement de 5 chiffres
         if(preg_match("/^\d{5}$/", $this->numC)){
             $result=true;

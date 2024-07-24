@@ -222,7 +222,7 @@ main .recent-factures a {
     font-size: 1rem;
     color:var(--color-primary);
 }
-.right .add .item{
+.right .add .item-client{
     background-color: transparent;
     border: 2px dashed var(--color-primary);
     display: flex;
@@ -235,13 +235,66 @@ main .recent-factures a {
     transition: all 300ms ease;
     transition: all 0.3s ease-in-out;
 }
-.right .add .item:hover{
-    transform: scale(1.05);
+.right .add .item-facture{
+    background-color: transparent;
+    border: 2px dashed var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    padding: 1.4rem var(--card-padding); 
+    border-radius: var(--border-radius-3);
+    transition: all 300ms ease;
+    transition: all 0.3s ease-in-out;
+
+}
+.right .add .item-facture:hover{
     background-color: var(--color-light);
 }
-        
+.right .add .item-client:hover{
+    background-color: var(--color-light);
+}
 
+.add-client-form{
+    display:none;
+    position:absolute;
+    right:24rem;
+    background-color: var(--color-white);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    padding: var(--card-border-radius);
+}
+.add-client-form input{
+    margin-bottom: 0.5rem;;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    padding: 10px;
+    border-radius: var(--border-radius-2);
+    color: var(--color-primary);
+}
+.add-client-form label{
+    color: var(--color-primary);
+    font-weight: 400;
+}
+.add-client-form h2{
+    text-align: center;
+}
 
+.add-client-form button{
+    background-color: var(--color-primary);
+    box-shadow: var(--box-shadow);
+    padding: 10px;
+    border-radius: var(--border-radius-2);
+    color: var(--color-white);
+    width:100%;
+}
+.add-client-form.open {
+    display:block;
+}
+.add-client-form.open input {
+    display: block;
+}
 
 
 
