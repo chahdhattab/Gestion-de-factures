@@ -242,6 +242,7 @@ if (!isset($_SESSION["username"])) {
                     <h2>Ajoutez un Client :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
                     <div class="add-client-form">
                         <!-------------ajouter un client---------------->
+                        <img src="images/cancel-2.png" alt="fermer" class="close" name="close" id="close" style="width:25px;"><br>
                         <h2>Ajouter un client :</h2><br>
                         <form action="includes/create-client.inc.php" method="post">
                             <label for="num">Numéro de Client :</label>
@@ -272,20 +273,6 @@ if (!isset($_SESSION["username"])) {
         </div>
         <!-------------------------------Fin : right side---------------------------------->
     </div>
-    <script>
-        const addclient = document.querySelector('.item-client');
-        const clientform = document.querySelector('.add-client-form');
-
-        // Empêche la propagation de l'événement de clic à l'intérieur du formulaire
-        clientform.addEventListener('click', (event) => {
-            event.stopPropagation();
-        });
-
-        addclient.addEventListener('click', () => {
-            clientform.classList.toggle('open');
-        });
-
-    </script>
-    
+    <script src="javascript/dashboard-script.js"></script>
 </body>
 </html>

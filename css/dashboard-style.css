@@ -259,7 +259,7 @@ main .recent-factures a {
 .add-client-form{
     display:none;
     position:absolute;
-    right:24rem;
+    right:27rem;
     background-color: var(--color-white);
     border-radius: var(--card-border-radius);
     box-shadow: var(--box-shadow);
@@ -282,6 +282,7 @@ main .recent-factures a {
 }
 
 .add-client-form button{
+    cursor: pointer;
     background-color: var(--color-primary);
     box-shadow: var(--box-shadow);
     padding: 10px;
@@ -296,9 +297,16 @@ main .recent-factures a {
     display: block;
 }
 
+.add-client-form .close{
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    cursor: pointer;
+}
 
-
-
+.add-client-form.close-form{
+    display: none;
+}
 
 
 
