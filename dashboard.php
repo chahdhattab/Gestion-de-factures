@@ -267,7 +267,7 @@ if (!isset($_SESSION["username"])) {
                             <input type="email" id="email" name="email" required>
                             
                             <label for="tel">Téléphone :</label>
-                            <input type="text" id="tel" name="tel" required><br><br>
+                            <input type="text" id="tel" name="tel" required><br>
                             
                             <button type="submit" id="submit" name="submit">Ajouter le Client</button>  
                         </form>
@@ -290,13 +290,15 @@ if (!isset($_SESSION["username"])) {
                             <label for="mantant">Montant Total : </label>
                             <input type="text" id="mantant" name="mantant" required>
                             
-                            <label for="options">Choisissez une option :</label><br>
+                            <label for="options">État de facture</label><br>
                             <select id="etat" name="etat" required>
-                                <option value="Payée">Payée</option>
+                                <option value="selectionner"><--sélectionner l'état--></option>
                                 <option value="Payée">Payée</option>
                                 <option value="Partiellement Payée">Partiellement Payée</option>
                                 <option value="Non Payée">Non Payée</option>
-                            </select>
+                            </select><br><br>
+
+                            <button type="submit" id="submit" name="submit">Ajouter la facture</button>
                         </form>
                     </div>
                    
