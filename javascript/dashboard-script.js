@@ -38,13 +38,16 @@ closeform.addEventListener('click', () => {
     clientform.classList.remove('open');
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    var Message = document.getElementById('message-display');
+// Sélectionnez l'élément de message de succès
+const messageSuccess = document.querySelector('.message-succ');
 
-    if (Message) {
-        Message.style.display = 'block';
-        setTimeout(function() {
-            Message.style.display = 'none';
-        }, 2000);
-    }
-});
+// Affichez le message de succès pendant 2 secondes
+function showSuccessMessage() {
+    messageSuccess.classList.add('show-message'); // Ajoutez la classe pour afficher le message
+
+    // Après 2 secondes, cachez le message
+    setTimeout(() => {
+        messageSuccess.classList.remove('show-message'); // Retirez la classe pour cacher le message
+    }, 2000); // 2000 millisecondes = 2 secondes
+}
+
