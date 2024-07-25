@@ -335,30 +335,8 @@ main .recent-factures a {
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
     z-index: 1000;
-    display: none;
-    transition: opacity 0.3s ease; /* Ajoutez une transition pour une apparition douce */
-    opacity: 0; /* Initialement invisible */
-}
-
-.message-succ.show-message {
     display: block;
-    opacity: 1; /* Rend visible */
-}
-
-
-.message-fail{
-    font-size: 20px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--color-danger);
-    box-shadow: var(--box-shadow);
-    color: var(--color-white);
-    padding: var(--card-padding);
-    border-radius: var(--card-border-radius);
-    z-index: 1000; /* Assurez-vous que le message s'affiche au-dessus du reste du contenu */
-    display: none; /* Cachez-le initialement */
+    transition: opacity 0.3s ease; /* Ajoutez une transition pour une apparition douce */
 }
 
 

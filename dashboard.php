@@ -19,7 +19,7 @@ if (!isset($_SESSION["username"])) {
 <body>
     <?php
         if(isset($_SESSION["message"]) && isset($_GET['message'])){
-            echo '<p class="message-succ id="message-display">'.htmlspecialchars($_SESSION["message"]).'</p>';
+            echo '<p class="message-succ" id="message-display">'.htmlspecialchars($_SESSION["message"]).'</p>';
         }?>
     <div class="container">
         <aside>

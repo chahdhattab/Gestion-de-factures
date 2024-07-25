@@ -38,16 +38,24 @@ closeform.addEventListener('click', () => {
     clientform.classList.remove('open');
 });
 
-// Sélectionnez l'élément de message de succès
-const messageSuccess = document.querySelector('.message-succ');
 
-// Affichez le message de succès pendant 2 secondes
-function showSuccessMessage() {
-    messageSuccess.classList.add('show-message'); // Ajoutez la classe pour afficher le message
 
-    // Après 2 secondes, cachez le message
-    setTimeout(() => {
-        messageSuccess.classList.remove('show-message'); // Retirez la classe pour cacher le message
-    }, 2000); // 2000 millisecondes = 2 secondes
-}
+document.addEventListener("DOMContentLoaded", function() {
+    // Sélectionnez l'élément avec la classe message-succ
+    var messageElement = document.querySelector(".message-succ");
+
+    // Vérifiez si l'élément existe
+    if (messageElement) {
+        // Attendez 2 secondes, puis masquez le message
+        setTimeout(function() {
+            messageElement.style.opacity = "0";
+            setTimeout(function() {
+                messageElement.parentNode.removeChild(messageElement);
+            }, 200); // Supprimez l'élément après que la transition soit terminée (300ms)
+        }, 1000); // Attendez 2 secondes avant de commencer à masquer
+    }
+});
+
+
+
 
