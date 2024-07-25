@@ -2,7 +2,7 @@
 
 //classe qui prepare l'execution de la créaction d'un utilisateur
 
-class CreateDBC extends Dbh{
+class CreateDBF extends Dbh{
     protected function setFacture($numf, $numc, $montant, $etat, $usermtrcl) {
         try {
             // Vérifier si le client existe 
@@ -16,9 +16,9 @@ class CreateDBC extends Dbh{
             }
             // Vérifier si la facture existe déja
 
-            $sql='SELECT numero_facture FROM factures WHERE numero_facture = ? AND matricule_utilisateur = ?';
+            $sql='SELECT numero_facture FROM factures WHERE numero_facture = ?';
             $stmt=$this->connect()->prepare($sql);
-            $stmt->execute([$numf, $usermtrcl]);
+            $stmt->execute([$numf]);
             $result = $stmt->fetch();
     
             if ($result) {

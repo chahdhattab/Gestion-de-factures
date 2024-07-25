@@ -285,17 +285,17 @@ if (!isset($_SESSION["username"])) {
                             <input type="text" id="numf" name="numf" required>
                             
                             <label for="nomc">Numéro du Client</label>
-                            <input type="text" id="nomc" name="nomc" required>
+                            <input type="text" id="numc" name="numc" required>
                             
                             <label for="mantant">Montant Total : </label>
-                            <input type="text" id="mantant" name="mantant" required>
+                            <input type="text" id="montant" name="montant" required>
                             
                             <label for="options">État de facture</label><br>
                             <select id="etat" name="etat" required>
                                 <option value="selectionner"><--sélectionner l'état--></option>
-                                <option value="Payée">Payée</option>
-                                <option value="Partiellement Payée">Partiellement Payée</option>
-                                <option value="Non Payée">Non Payée</option>
+                                <option value="payée">payée</option>
+                                <option value="partiellement_payée">partiellement_payée</option>
+                                <option value="non_payée">non_payée</option>
                             </select><br><br>
 
                             <button type="submit" id="submit" name="submit">Ajouter la facture</button>
