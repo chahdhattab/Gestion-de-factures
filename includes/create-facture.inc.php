@@ -22,7 +22,7 @@ if (isset($_POST["submit"])) {
     $createclient = new CreateFacture($numf,$numc,$montant,$matricule,$etat);
     $createclient->createNewFacture();
     $_SESSION['message'] = 'Facture enregistrée avec succès!';
-    //header("Location: ../dashboard.php?message=Facture%20enregistré%20avec%20succès.");
+    header("Location: ../dashboard.php?message=Facture%20enregistré%20avec%20succès.");
 }
 
 

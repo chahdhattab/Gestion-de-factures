@@ -1,3 +1,30 @@
+<?php
+session_start(); // Démarrer la session pour accéder aux variables de session
+
+// Vérifiez si l'utilisateur est connecté
+if (!isset($_SESSION["username"])) {
+    header("Location: login.php"); // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
+    exit();
+}
+
+require 'classes/Dbh.class.php';
+require 'classes/FetchFactures.class.php';
+
+$factureObj = new FetchFactures();
+
+// Paramètres de pagination
+$limit = 11;
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$offset = ($page - 1) * $limit;
+
+// Récupérer les factures avec pagination
+$factures = $factureObj->getFacturesByPage($limit, $offset);
+
+// Récupérer le nombre total de factures
+$totalFactures = $factureObj->getTotalFactures();
+$totalPages = ceil($totalFactures / $limit);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +62,7 @@
                     <img src="images/customer.png" alt="Logo" style="width:30px;">
                     <h3>Clients</h3>
                 </a>
-                <a href="index.php">
+                <a href="login.php">
                     <img src="images/logout.png" alt="Logo" style="width:30px;">
                     <h3>Déconnexion</h3>
                 </a>
@@ -57,7 +84,7 @@
                 <table>
                     <thead>
                         <th>ID</th>
-                        <th>Client</th>
+                        <th>Numéro du Client</th>
                         <th>Date de création</th>
                         <th>Montant</th>
                         <th>État du Paiement</th>
@@ -67,136 +94,43 @@
                         <th></th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>256374</td>
-                            <td>HATTAB Mohammed</td>
-                            <td>12-07-2024</td>
-                            <td>2750 DH</td>
-                            <td class="success">Payée</td>
-                            <td><a href="#"><img src="images/information.png" alt="info" style="width: 20px;"></a></td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                            <td><img src="images/import.png" alt="importer" style="width: 20px;"></td>
+                    <?php
+                        foreach ($factures as $facture) {
+                            
+                            $etatClass = '';
+                            if ($facture['statut'] == 'payée') {
+                                $etatClass = 'success';
+                            } elseif ($facture['statut'] == 'partiellement_payée') {
+                                $etatClass = 'warning';
+                            } elseif ($facture['statut'] == 'non_payée') {
+                                $etatClass = 'danger';
+                            }
 
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>FILALI Amine</td>
-                            <td>07-03-2024</td>
-                            <td>1290 DH</td>
-                            <td class="warning">Partiellement Payée</td>
-                            <td><img src="images/information.png" alt="info" style="width: 20px;"></td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                            <td><img src="images/import.png" alt="importer" style="width: 20px;"></td>
-                        <tr>
-                            <td>256374</td>
-                            <td>HATTAB Mohammed</td>
-                            <td>12-07-2024</td>
-                            <td>2750 DH</td>
-                            <td class="success">Payée</td>
-                            <td><img src="images/information.png" alt="info" style="width: 20px;"></td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                            <td><img src="images/import.png" alt="importer" style="width: 20px;"></td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>FILALI Amine</td>
-                            <td>07-03-2024</td>
-                            <td>1290 DH</td>
-                            <td class="danger">Non Payée</td>
-                            <td><img src="images/information.png" alt="info" style="width: 20px;"></td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                            <td><img src="images/import.png" alt="importer" style="width: 20px;"></td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>FILALI Amine</td>
-                            <td>07-03-2024</td>
-                            <td>1290 DH</td>
-                            <td class="warning">Partiellement Payée</td>
-                            <td><img src="images/information.png" alt="info" style="width: 20px;"></td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                            <td><img src="images/import.png" alt="importer" style="width: 20px;"></td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>HATTAB Mohammed</td>
-                            <td>12-07-2024</td>
-                            <td>2750 DH</td>
-                            <td class="success">Payée</td>
-                            <td><img src="images/information.png" alt="info" style="width: 20px;"></td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                            <td><img src="images/import.png" alt="importer" style="width: 20px;"></td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>HATTAB Mohammed</td>
-                            <td>12-07-2024</td>
-                            <td>2750 DH</td>
-                            <td class="success">Payée</td>
-                            <td><img src="images/information.png" alt="info" style="width: 20px;"></td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                            <td><img src="images/import.png" alt="importer" style="width: 20px;"></td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>HATTAB Mohammed</td>
-                            <td>12-07-2024</td>
-                            <td>2750 DH</td>
-                            <td class="danger">Non Payée</td>
-                            <td><img src="images/information.png" alt="info" style="width: 20px;"></td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                            <td><img src="images/import.png" alt="importer" style="width: 20px;"></td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>FILALI Amine</td>
-                            <td>07-03-2024</td>
-                            <td>1290 DH</td>
-                            <td class="warning">Partiellement Payée</td>
-                            <td><img src="images/information.png" alt="info" style="width: 20px;"></td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                            <td><img src="images/import.png" alt="importer" style="width: 20px;"></td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>FILALI Amine</td>
-                            <td>07-03-2024</td>
-                            <td>1290 DH</td>
-                            <td class="danger">Non Payée</td>
-                            <td><img src="images/information.png" alt="info" style="width: 20px;"></td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                            <td><img src="images/import.png" alt="importer" style="width: 20px;"></td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>FILALI Amine</td>
-                            <td>07-03-2024</td>
-                            <td>1290 DH</td>
-                            <td class="success">Payée</td>
-                            <td><img src="images/information.png" alt="info" style="width: 20px;"></td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                            <td><img src="images/import.png" alt="importer" style="width: 20px;"></td>
-                        </tr>
-                        
+                            echo "<tr>";
+                            echo "<td>{$facture['numero_facture']}</td>";
+                            echo "<td>{$facture['numero_facture']}</td>";
+                            echo "<td>{$facture['date_creation']}</td>";
+                            echo "<td>{$facture['montant_total']} DH</td>";
+                            echo "<td class='{$etatClass}'>{$facture['statut']}</td>";
+                            echo "<td><a href='#'><img src='images/information.png' alt='info' style='width: 20px;'></a></td>";
+                            echo "<td><img src='images/pencil.png' alt='editer' style='width: 20px;'></td>";
+                            echo "<td><img src='images/delete.png' alt='supprimer' style='width: 20px;'></td>";
+                            echo "<td><img src='images/import.png' alt='importer' style='width: 20px;'></td>";
+                            echo "</tr>";
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
             <div class="bottom-list">
                 <div class="pagination">
-                    <button id="prevBtn" onclick="prevPage()">Précent</button>
-                    <span id="pageNum">1</span>
-                    <button id="nextBtn" onclick="nextPage()">Next</button>
+                    <?php if ($page > 1): ?>
+                        <a href="?page=<?= $page - 1 ?>" id="prevBtn">Précédent</a>
+                    <?php endif; ?>
+                    <span id="pageNum"><?= $page ?></span>
+                    <?php if ($page < $totalPages): ?>
+                        <a href="?page=<?= $page + 1 ?>" id="nextBtn">Suivant</a>
+                    <?php endif; ?>
                 </div>
                 <div class="add-export">
                     <a href="#" class="add-facture">
