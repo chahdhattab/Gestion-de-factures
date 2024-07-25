@@ -6,6 +6,7 @@ if (!isset($_SESSION["username"])) {
     header("Location: login.php"); // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
     exit();
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +17,10 @@ if (!isset($_SESSION["username"])) {
     <title>Dashboard</title>
 </head>
 <body>
+    <?php
+        if(isset($_SESSION["message"]) && isset($_GET['message'])){
+            echo '<p class="message-succ id="message-display">'.htmlspecialchars($_SESSION["message"]).'</p>';
+        }?>
     <div class="container">
         <aside>
             <div class="top">
@@ -51,8 +56,11 @@ if (!isset($_SESSION["username"])) {
             </div>
             
         </aside>
- <!-------------------insights--------------------->
-         <main>
+<!------------------------main------------------------------------>
+        <!-------------------insights--------------------->
+        
+        <main>
+            
             <h1>Dashboard</h1>
             <div class="insights">
                 
@@ -183,6 +191,7 @@ if (!isset($_SESSION["username"])) {
             </div>
         </main>
     <!--------------------------Fin: Main---------------------------->
+    
         <div class="right">
             <div class="top">
                 <button class="menu-btn">
@@ -262,16 +271,6 @@ if (!isset($_SESSION["username"])) {
                             
                             <button type="submit" id="submit" name="submit">Ajouter le Client</button>  
                         </form>
-                        <?php
-                        session_start();
-
-                        // Vérifier si un message est présent dans la session
-                        if (isset($_SESSION['message'])) {
-                            echo '<p>' . $_SESSION['message'] . '</p>';
-                            // Effacer le message après l'affichage
-                            unset($_SESSION['message']);
-                        }
-                        ?>
                     </div>
                 </a>
                 <a href="#" class="item-facture">
@@ -283,6 +282,7 @@ if (!isset($_SESSION["username"])) {
         </div>
         <!-------------------------------Fin : right side---------------------------------->
     </div>
+    
     <script src="javascript/dashboard-script.js"></script>
 </body>
 </html>

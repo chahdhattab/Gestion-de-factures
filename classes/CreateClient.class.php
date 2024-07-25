@@ -77,8 +77,12 @@ class CreateClient extends CreateDB {
         }
 
         // Si aucune erreur, affichage d'un message de succès
-        $_SESSION['message'] = "Client bien enregistré";
+        
+
+        
         $this->setClient($this->numC, $this->nomC, $this->prenomC, $this->emailC, $this->telC, $this->matricule_utilisateur);
+        $_SESSION['message'] = 'Client bien enregistré!';
+
     }
 }
 

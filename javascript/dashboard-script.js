@@ -37,3 +37,14 @@ addclient.addEventListener('click', () => {
 closeform.addEventListener('click', () => {
     clientform.classList.remove('open');
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    var Message = document.getElementById('message-display');
+
+    if (Message) {
+        Message.style.display = 'block';
+        setTimeout(function() {
+            Message.style.display = 'none';
+        }, 2000);
+    }
+});

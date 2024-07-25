@@ -307,9 +307,51 @@ main .recent-factures a {
 .add-client-form.close-form{
     display: none;
 }
+.scfl{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+    box-shadow: var(--box-shadow);
+    padding: var(--card-border-radius);
+    border-radius: var(--card-border-radius);
+    background-color: transparent;
+}
+.message-box{
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-success);
+}
 
+.message-succ{
+    font-size: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-success);
+    box-shadow: var(--box-shadow);
+    color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    z-index: 1000; /* Assurez-vous que le message s'affiche au-dessus du reste du contenu */
+    display: none; /* Cachez-le initialement */
+}
 
-
+.message-fail{
+    font-size: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-danger);
+    box-shadow: var(--box-shadow);
+    color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    z-index: 1000; /* Assurez-vous que le message s'affiche au-dessus du reste du contenu */
+    display: none; /* Cachez-le initialement */
+}
 
 
 

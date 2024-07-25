@@ -22,7 +22,6 @@ if (isset($_POST["submit"])) {
     // Créez une instance de LoginCont et essayez de connecter l'utilisateur
     $createclient = new CreateClient($num,$nom,$pre,$email,$tel,$matricule);
     $createclient->createNewClient();
-    echo"success !";
-} else {
-    echo "Le formulaire n'a pas été soumis.";
+    $_SESSION['message'] = 'Client bien enregistré!';
+    header("Location: ../dashboard.php?message=Client%20enregistré%20avec%20succès.");
 }
