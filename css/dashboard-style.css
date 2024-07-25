@@ -256,7 +256,7 @@ main .recent-factures a {
     background-color: var(--color-light);
 }
 
-.add-client-form{
+.add-client-form {
     display:none;
     position:absolute;
     right:27rem;
@@ -265,7 +265,17 @@ main .recent-factures a {
     box-shadow: var(--box-shadow);
     padding: var(--card-border-radius);
 }
-.add-client-form input{
+.add-facture-form{
+    display:none;
+    position:absolute;
+    right:27rem;
+    background-color: var(--color-white);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    padding: var(--card-border-radius);
+}
+
+.add-client-form input, .add-facture-form input{
     margin-bottom: 0.5rem;;
     background-color: var(--color-white);
     box-shadow: var(--box-shadow);
@@ -273,15 +283,15 @@ main .recent-factures a {
     border-radius: var(--border-radius-2);
     color: var(--color-primary);
 }
-.add-client-form label{
+.add-client-form label, .add-facture-form label{
     color: var(--color-primary);
     font-weight: 400;
 }
-.add-client-form h2{
+.add-client-form h2 , .add-facture-form h2{
     text-align: center;
 }
 
-.add-client-form button{
+.add-client-form button , .add-facture-form button{
     cursor: pointer;
     background-color: var(--color-primary);
     box-shadow: var(--box-shadow);
@@ -290,22 +300,29 @@ main .recent-factures a {
     color: var(--color-white);
     width:100%;
 }
-.add-client-form.open {
+.add-client-form.open , .add-facture-form.open{
     display:block;
 }
-.add-client-form.open input {
+.add-client-form.open input , .add-facture-form input{
     display: block;
 }
 
-.add-client-form .close{
+.add-client-form .close, .add-facture-form .closeF{
     position: absolute;
     top: 12px;
     right: 10px;
     cursor: pointer;
 }
 
-.add-client-form.close-form{
+.add-client-form.close-form, .add-facture-form.close-form{
     display: none;
+}
+.add-facture-form select{
+    background-color: var(--color-light);
+    padding: 10px;
+    border-radius: var(--border-radius-2);
+    color: var(--color-primary);
+
 }
 .scfl{
     display: flex;

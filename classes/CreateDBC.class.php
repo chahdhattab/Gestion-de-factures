@@ -2,7 +2,7 @@
 
 //classe qui prepare l'execution de la créaction d'un utilisateur
 
-class CreateDB extends Dbh{
+class CreateDBC extends Dbh{
     protected function setClient($num, $nom, $pre, $email, $tel, $usermtrcl) {
         try {
             // Vérifier si le client existe déjà

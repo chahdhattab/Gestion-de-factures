@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
+//client 
+
 const addclient = document.querySelector('.item-client');
 const clientform = document.querySelector('.add-client-form');
 const closeform = document.querySelector('#close');
@@ -36,6 +38,22 @@ addclient.addEventListener('click', () => {
 
 closeform.addEventListener('click', () => {
     clientform.classList.remove('open');
+});
+//facture
+const addfacture = document.querySelector('.item-facture');
+const factureform = document.querySelector('.add-facture-form');
+const closeformF = document.querySelector('#closeF');
+
+factureform.addEventListener('click', (event) => {
+     event.stopPropagation();
+});
+ 
+addfacture.addEventListener('click', () => {
+    factureform.classList.toggle('open');
+});
+
+closeformF.addEventListener('click', () => {
+    factureform.classList.remove('open');
 });
 
 

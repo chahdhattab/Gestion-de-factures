@@ -254,7 +254,7 @@ if (!isset($_SESSION["username"])) {
                         <img src="images/cancel-2.png" alt="fermer" class="close" name="close" id="close" style="width:25px;"><br>
                         <h2>Ajouter un client :</h2><br>
                         <form action="includes/create-client.inc.php" method="post">
-                            <label for="num">Numéro de Client :</label>
+                            <label for="num">Numéro du Client :</label>
                             <input type="text" id="num" name="num" required>
                             
                             <label for="nom">Nom :</label>
@@ -276,7 +276,30 @@ if (!isset($_SESSION["username"])) {
                 <a href="#" class="item-facture">
                     <img src="images/add-facture.png" style="width:40px;" alt="icon">
                     <h2>Ajoutez une facture :</h2>
-                    <!-------------ajouter une facture---------------->
+                    <div class="add-facture-form">
+                        <!-------------ajouter une facture---------------->
+                        <img src="images/cancel-2.png" alt="fermer" class="closeF" name="closeF" id="closeF" style="width:25px;"><br>
+                        <h2>Ajouter une facture :</h2><br>
+                        <form action="includes/create-facture.inc.php" method="post">
+                            <label for="numf">Numéro de la Facture :</label>
+                            <input type="text" id="numf" name="numf" required>
+                            
+                            <label for="nomc">Numéro du Client</label>
+                            <input type="text" id="nomc" name="nomc" required>
+                            
+                            <label for="mantant">Montant Total : </label>
+                            <input type="text" id="mantant" name="mantant" required>
+                            
+                            <label for="options">Choisissez une option :</label><br>
+                            <select id="etat" name="etat" required>
+                                <option value="Payée">Payée</option>
+                                <option value="Payée">Payée</option>
+                                <option value="Partiellement Payée">Partiellement Payée</option>
+                                <option value="Non Payée">Non Payée</option>
+                            </select>
+                        </form>
+                    </div>
+                   
                 </a>
             </div>
         </div>

@@ -1,6 +1,6 @@
 <?php
 
-class CreateClient extends CreateDB {
+class CreateClient extends CreateDBC {
     private $numC;
     private $nomC;
     private $prenomC;
