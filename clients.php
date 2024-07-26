@@ -2,7 +2,7 @@
 session_start(); // Démarrer la session pour accéder aux variables de session
 
 // Vérifiez si l'utilisateur est connecté
-if (!isset($_SESSION["username"])) {
+if (!isset($_SESSION["username"]) || !isset($_SESSION["matricule"])) {
     header("Location: login.php"); // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
     exit();
 }
@@ -16,9 +16,9 @@ $limit=11;
 $page=isset($_GET['page'])?(int)$_GET['page'] : 1;
 $offset=($page - 1) * $limit;
 
-$clients=$clientsObj->getClientsByPage($limit, $offset);
+$clients=$clientsObj->getClientsByPage($limit, $offset, $_SESSION["matricule"]);
 
-$totalClients = $clientsObj->getTotalClients();
+$totalClients = $clientsObj->getTotalClients($_SESSION["matricule"]);
 $totalPages = ceil($totalClients / $limit);
 
 ?>

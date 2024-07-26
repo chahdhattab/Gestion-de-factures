@@ -12,7 +12,7 @@ require "classes/FetchFactures.class.php";
 
 $factureObj = new FetchFactures();
 
-$Lfactures = $factureObj->getLatestFactures();
+$Lfactures = $factureObj->getLatestFactures($_SESSION["matricule"]);
 ?>
 
 <!DOCTYPE html>

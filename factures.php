@@ -18,10 +18,10 @@ $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $offset = ($page - 1) * $limit;
 
 // Récupérer les factures avec pagination
-$factures = $factureObj->getFacturesByPage($limit, $offset);
+$factures = $factureObj->getFacturesByPage($limit, $offset, $_SESSION["matricule"]);
 
 // Récupérer le nombre total de factures
-$totalFactures = $factureObj->getTotalFactures();
+$totalFactures = $factureObj->getTotalFactures($_SESSION["matricule"]);
 $totalPages = ceil($totalFactures / $limit);
 ?>
 
@@ -108,7 +108,7 @@ $totalPages = ceil($totalFactures / $limit);
 
                             echo "<tr>";
                             echo "<td>{$facture['numero_facture']}</td>";
-                            echo "<td>{$facture['numero_facture']}</td>";
+                            echo "<td>{$facture['numero_client']}</td>";
                             echo "<td>{$facture['date_creation']}</td>";
                             echo "<td>{$facture['montant_total']} DH</td>";
                             echo "<td class='{$etatClass}'>{$facture['statut']}</td>";
