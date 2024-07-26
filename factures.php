@@ -83,8 +83,8 @@ $totalPages = ceil($totalFactures / $limit);
             <div class="factures-table">
                 <table>
                     <thead>
-                        <th>ID</th>
-                        <th>Numéro du Client</th>
+                        <th>N° Facture</th>
+                        <th>N° Client</th>
                         <th>Date de création</th>
                         <th>Montant</th>
                         <th>État du Paiement</th>

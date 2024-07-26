@@ -1,3 +1,28 @@
+<?php
+session_start(); // Démarrer la session pour accéder aux variables de session
+
+// Vérifiez si l'utilisateur est connecté
+if (!isset($_SESSION["username"])) {
+    header("Location: login.php"); // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
+    exit();
+}
+require 'classes/Dbh.class.php';
+require 'classes/FetchClients.class.php';
+
+
+$clientsObj=new FetchClients();
+
+$limit=11;
+$page=isset($_GET['page'])?(int)$_GET['page'] : 1;
+$offset=($page - 1) * $limit;
+
+$clients=$clientsObj->getClientsByPage($limit, $offset);
+
+$totalClients = $clientsObj->getTotalClients();
+$totalPages = ceil($totalClients / $limit);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,123 +78,43 @@
             <div class="clients-table">
                 <table>
                     <thead>
-                        <th>ID</th>
+                        <th>N° Client</th>
                         <th>Nom</th>
                         <th>Prénom</th>
                         <th>Email</th>
                         <th>N° Téléphone</th>
+                        <th>Date de création</th>
                         <th></th>
                         <th></th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>256374</td>
-                            <td>HATTAB</td>
-                            <td>Mohammed</td>
-                            <td>mohammedhattab@gmail.com</td>
-                            <td>0635749377</td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>FILALI</td>
-                            <td>Amine</td>
-                            <td>aminefilali.com</td>
-                            <td>0635749377</td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>HATTAB</td>
-                            <td>Mohammed</td>
-                            <td>mohammedhattab@gmail.com</td>
-                            <td>0635749377</td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>FILALI</td>
-                            <td>Amine</td>
-                            <td>aminefilali.com</td>
-                            <td>0635749377</td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>HATTAB</td>
-                            <td>Mohammed</td>
-                            <td>mohammedhattab@gmail.com</td>
-                            <td>0635749377</td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>FILALI</td>
-                            <td>Amine</td>
-                            <td>aminefilali.com</td>
-                            <td>0635749377</td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>HATTAB</td>
-                            <td>Mohammed</td>
-                            <td>mohammedhattab@gmail.com</td>
-                            <td>0635749377</td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>FILALI</td>
-                            <td>Amine</td>
-                            <td>aminefilali.com</td>
-                            <td>0635749377</td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>HATTAB</td>
-                            <td>Mohammed</td>
-                            <td>mohammedhattab@gmail.com</td>
-                            <td>0635749377</td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>FILALI</td>
-                            <td>Amine</td>
-                            <td>aminefilali.com</td>
-                            <td>0635749377</td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>HATTAB</td>
-                            <td>Mohammed</td>
-                            <td>mohammedhattab@gmail.com</td>
-                            <td>0635749377</td>
-                            <td><img src="images/pencil.png" alt="editer" style="width: 20px;"></td>
-                            <td><img src="images/delete.png" alt="supprimer" style="width: 20px;"></td>
-                        </tr>
-                        
+                        <?php
+                            foreach ($clients as $client) {
+
+                                echo "<tr>";
+                                echo "<td>{$client['numero_client']}</td>";
+                                echo "<td>{$client['nom']}</td>";
+                                echo "<td>{$client['prenom']}</td>";
+                                echo "<td>{$client['email']} </td>";
+                                echo "<td>{$client['telephone']} </td>";
+                                echo "<td>{$client['date_creation']} </td>";
+                                echo "<td><img src='images/pencil.png' alt='editer' style='width: 20px;'></td>";
+                                echo "<td><img src='images/delete.png' alt='supprimer' style='width: 20px;'></td>";
+                                echo "</tr>";
+                            }
+                            ?>
                     </tbody>
                 </table>
             </div>
             <div class="bottom-list">
                 <div class="pagination">
-                    <button id="prevBtn" onclick="prevPage()">Précent</button>
-                    <span id="pageNum">1</span>
-                    <button id="nextBtn" onclick="nextPage()">Next</button>
+                    <?php if ($page > 1): ?>
+                        <a href="?page=<?= $page - 1 ?>" id="prevBtn">Précédent</a>
+                    <?php endif; ?>
+                    <span id="pageNum"><?= $page ?></span>
+                    <?php if ($page < $totalPages): ?>
+                        <a href="?page=<?= $page + 1 ?>" id="nextBtn">Suivant</a>
+                    <?php endif; ?>
                 </div>
                 <div class="add-export">
                     <a href="#" class="add-client">
