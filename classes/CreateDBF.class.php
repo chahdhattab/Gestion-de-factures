@@ -12,7 +12,9 @@ class CreateDBF extends Dbh{
             $result = $stmt->fetch();
     
             if (!$result) {
-                throw new Exception("Ce client n'existe pas");
+                $_SESSION['error'] = 'Ce client n`existe pas !';
+                header("Location: ../dashboard.php?error=Numéro%20Client%20n'existe%20pas !");
+                exit();
             }
             // Vérifier si la facture existe déja
 
@@ -22,7 +24,9 @@ class CreateDBF extends Dbh{
             $result = $stmt->fetch();
     
             if ($result) {
-                throw new Exception("Ce numéro de facture existe déjà");
+                $_SESSION['error'] = 'Ce numéro de facture existe déjà';
+                header("Location: ../dashboard.php?error=Numéro%20Facture%20existe%20déjà !");
+                exit();
             }
             // Insérer un nouvel client
             $sql = 'INSERT INTO factures (numero_facture, numero_client, montant_total, statut) VALUES (?, ?, ?, ?)';

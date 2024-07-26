@@ -7,7 +7,14 @@ if (!isset($_SESSION["username"])) {
     exit();
 }
 
+require "classes/Dbh.class.php";
+require "classes/FetchFactures.class.php";
+
+$factureObj = new FetchFactures();
+
+$Lfactures = $factureObj->getLatestFactures();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,9 +25,14 @@ if (!isset($_SESSION["username"])) {
 </head>
 <body>
     <?php
-        if(isset($_SESSION["message"]) && isset($_GET['message'])){
-            echo '<p class="message-succ" id="message-display">'.htmlspecialchars($_SESSION["message"]).'</p>';
-        }?>
+        if(isset($_GET['message'])){
+            echo '<p class="message-succ" id="message-display">'.htmlspecialchars($_GET["message"]).'</p>';
+        }
+        if(isset($_GET['error'])){
+            echo '<p class="message-fail" id="message-display1">'.htmlspecialchars($_GET["error"]).'</p>';
+        }
+        ?>
+        
     <div class="container">
         <aside>
             <div class="top">
@@ -129,63 +141,34 @@ if (!isset($_SESSION["username"])) {
                 <table>
                     <thead>
                         <th>N° Facture</th>
-                        <th>Client</th>
+                        <th>Numéro du Client</th>
                         <th>Montant</th>
                         <th>Statut</th>
                         <th>Date de création</th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>256374</td>
-                            <td>Mohammed HATTAB</td>
-                            <td>3570 DH</td>
-                            <td class="success">Payée</td>
-                            <td class="primary">24/07/2024</td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>Amine FILALI</td>
-                            <td>380 DH</td>
-                            <td class="danger">Non Payée</td>
-                            <td class="primary">16/07/2024</td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>Ayoub YACOUBI</td>
-                            <td>570 DH</td>
-                            <td class="success">Payée</td>
-                            <td class="primary">10/07/2024</td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>Meryem SADKI</td>
-                            <td>940 DH</td>
-                            <td class="warning">Partiellement Payée</td>
-                            <td class="primary">02/07/2024</td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>Aya KADIRI</td>
-                            <td>800 DH</td>
-                            <td class="danger">Non Payée</td>
-                            <td class="primary">30/06/2024</td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>Ayman AKILI</td>
-                            <td>380 DH</td>
-                            <td class="success">Payée</td>
-                            <td class="primary">25/06/2024</td>
-                        </tr>
-                        <tr>
-                            <td>256374</td>
-                            <td>Ayman AKILI</td>
-                            <td>380 DH</td>
-                            <td class="warning"> Partiellement Payée</td>
-                            <td class="primary">25/06/2024</td>
-                        </tr>
-                        
+                    <?php
+                        foreach ($Lfactures as $facture) {
+                            $etatClass = '';
+                            if ($facture['statut'] == 'payée') {
+                                $etatClass = 'success';
+                            } elseif ($facture['statut'] == 'partiellement_payée') {
+                                $etatClass = 'warning';
+                            } elseif ($facture['statut'] == 'non_payée') {
+                                $etatClass = 'danger';
+                            }
+
+                            echo "<tr>";
+                            echo "<td>{$facture['numero_facture']}</td>";
+                            echo "<td>{$facture['numero_client']}</td>";
+                            echo "<td>{$facture['montant_total']} DH</td>";
+                            echo "<td class='{$etatClass}'>{$facture['statut']}</td>";
+                            echo "<td>{$facture['date_creation']}</td>";
+                            echo "</tr>";
+                        }
+                        ?>
                     </tbody>
+                    
                 </table>
                 <a href="factures.php">Afficher Tout</a>
             </div>

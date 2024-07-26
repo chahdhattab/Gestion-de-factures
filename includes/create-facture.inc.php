@@ -21,8 +21,6 @@ if (isset($_POST["submit"])) {
     // Créez une instance de LoginCont et essayez de connecter l'utilisateur
     $createclient = new CreateFacture($numf,$numc,$montant,$matricule,$etat);
     $createclient->createNewFacture();
-    $_SESSION['message'] = 'Facture enregistrée avec succès!';
-    header("Location: ../dashboard.php?message=Facture%20enregistré%20avec%20succès.");
 }
 
 

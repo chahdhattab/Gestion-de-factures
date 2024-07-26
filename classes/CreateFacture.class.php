@@ -29,29 +29,38 @@ class CreateFacture extends CreateDBF{
 
     public function createNewFacture(){
         // Affichage des détails de la facture pour vérifier si la méthode est appelée
+        /*
         echo "NumFacture: " . $this->numf . "<br>";
         echo "NnumClient: " . $this->numc . "<br>";
         echo "Montant: " . $this->montant . "<br>";
         echo "État: " . $this->etat . "<br>";
         echo "Utilisateur: " . $this->matricule_utilisateur . "<br>";
+        */
 
         // Vérification des entrées
 
+        $factureCree = false;
+
         if (!$this->emptyInput()) {
-            echo "Erreur: Champ(s) vide(s)<br>";
-            // Remplacer `header()` par un simple `echo` pour déboguer
-            // header("location: ../index.php?error=emptyInput");
-            // exit();
+            $_SESSION['error'] = 'Remplissez tout les champs !';
+            header("location: ../dashboard.php?error=Remplissez tout les champs ");
+            exit();
         }
         if(!$this->validnumber($this->montant) || !$this->validnumber($this->numc)){
-            echo "Erreur: Numéro invalide<br>";
-            // header("location: ../index.php?error=invalidNum");
-            // exit();
+            $_SESSION['error'] = 'Numéro invalide!';
+            header("location: ../dashboard.php?error=Numéro invalide");
+            exit();
         }
 
+        $factureCree = true;
+
         $this->setFacture($this->numf, $this->numc, $this->montant, $this->etat, $this->matricule_utilisateur);
-        $_SESSION['message'] = 'Facture bien enregistré!';
-        echo "facture enregistré !";
+
+    
+        if ($factureCree) {
+            $_SESSION['message'] = 'Facture enregistrée avec succès!';
+            header("Location: ../dashboard.php?message=Facture%20enregistrée%20avec%20succès.");
+        }
     
     }
 

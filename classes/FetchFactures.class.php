@@ -16,6 +16,12 @@ class FetchFactures extends Dbh{
         $stmt->execute();
         return $stmt->fetch()['total'];
     }
+    public function getLatestFactures(){
+        $sql = "SELECT * FROM factures ORDER BY date_creation DESC LIMIT 6";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
  
 
 }
