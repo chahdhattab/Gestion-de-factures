@@ -127,9 +127,33 @@ $totalPages = ceil($totalClients / $limit);
                     </a>
                 </div>
             </div>
+            <div class="add-client-form">
+                        <!-------------ajouter un client---------------->
+                <img src="images/cancel-2.png" alt="fermer" class="close" name="close" id="close" style="width:25px;"><br>
+                <h2>Ajouter un client :</h2><br>
+                    <form action="includes/create-client.inc.php" method="post">
+                            <label for="num">Numéro du Client :</label>
+                            <input type="text" id="num" name="num" required>
+                            
+                            <label for="nom">Nom :</label>
+                            <input type="text" id="nom" name="nom" required>
+                            
+                            <label for="pre">Prénom :</label>
+                            <input type="text" id="pre" name="pre" required>
+                            
+                            <label for="email">Email :</label>
+                            <input type="email" id="email" name="email" required>
+                            
+                            <label for="tel">Téléphone :</label>
+                            <input type="text" id="tel" name="tel" required><br>
+                            
+                            <button type="submit" id="submit" name="submit">Ajouter le Client</button>  
+                    </form>
+                </div>
             
         </main>
     </div>
+    <script src="javascript/clients.js"></script>
     
 </body>
 </html>

@@ -145,7 +145,7 @@ main .bottom-list .add-export{
     display: flex;
     gap:1rem;
 
-}
+} 
 
 main .bottom-list .add-export .add-facture{
     display: flex;
@@ -183,7 +183,63 @@ main .bottom-list .add-export .add-facture:hover{
 main .bottom-list .add-export .export:hover{
     box-shadow: none;
 }
+.add-facture-form{
+    display:none;
+    position:absolute;
+    right:30rem;
+    top:25.5rem;
+    background-color: var(--color-white);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    padding: var(--card-border-radius);
 
+}
+.add-facture-form input{
+    margin-bottom: 0.5rem;;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    padding: 10px;
+    border-radius: var(--border-radius-2);
+    color: var(--color-primary);
+}
 
+.add-facture-form label{
+    color: var(--color-primary);
+    font-weight: 400;
+}
+.add-facture-form h2{
+    text-align: center;
+}
+.add-facture-form button{
+    cursor: pointer;
+    background-color: var(--color-primary);
+    box-shadow: var(--box-shadow);
+    padding: 10px;
+    border-radius: var(--border-radius-2);
+    color: var(--color-white);
+    width:100%;
+}
+.add-facture-form.open{
+    display:block;
+}
 
+.add-facture-form input{
+    display: block;
+}
+.add-facture-form .closeF{
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    cursor: pointer;
+}
+.add-facture-form.close-form{
+    display: none;
+}
+.add-facture-form select{
+    background-color: var(--color-light);
+    padding: 10px;
+    border-radius: var(--border-radius-2);
+    color: var(--color-primary);
+
+}
 

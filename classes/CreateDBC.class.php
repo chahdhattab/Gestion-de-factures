@@ -12,17 +12,20 @@ class CreateDBC extends Dbh{
             $result = $stmt->fetch();
     
             if ($result) {
-                throw new Exception("Client existe déjà");
+                $_SESSION['error'] = 'Ce client existe déjà !';
+                header("Location: ../dashboard.php?error=Numéro%20Client%20existe%20déjà!");
+                exit();
             }
     
             // Insérer un nouvel client
             $sql = 'INSERT INTO clients (numero_client, matricule_utilisateur, nom, prenom, email, telephone) VALUES (?, ?, ?, ?, ?, ?)';
             $stmt = $this->connect()->prepare($sql);
             if (!$stmt->execute([$num, $usermtrcl, $nom, $pre, $email, $tel])) {
-                throw new Exception("Erreur lors de l'insertion du client : " . implode(", ", $stmt->errorInfo()));
+                $_SESSION['error'] = 'Erreur lors d`insersetion !';
+                header("Location: ../dashboard.php?error=Numéro%20Client%20existe%20déjà!");
+                exit();
             }
             
-            echo "Client enregistré avec succès !";
         } catch (Exception $e) {
             echo "Error: " . $e->getMessage();
         }

@@ -47,41 +47,49 @@ class CreateClient extends CreateDBC {
 
     public function createNewClient() {
         // Affichage des détails du client pour vérifier si la méthode est appelée
+
+        /*
         echo "NumClient: " . $this->numC . "<br>";
         echo "NomClient: " . $this->nomC . "<br>";
         echo "PrenomClient: " . $this->prenomC . "<br>";
         echo "EmailClient: " . $this->emailC . "<br>";
         echo "Utilisateur: " . $this->matricule_utilisateur . "<br>";
+        */
+
+        $ClientCree = false;
 
         // Vérification des entrées
         if (!$this->emptyInput()) {
-            echo "Erreur: Champ(s) vide(s)<br>";
-            // Remplacer `header()` par un simple `echo` pour déboguer
-            // header("location: ../index.php?error=emptyInput");
-            // exit();
+            $_SESSION['error'] = 'Remplissez tout les champs !';
+            header("location: ../dashboard.php?error=Remplissez tout les champs ");
+            exit();
         }
         if (!$this->validfullname()) {
-            echo "Erreur: Nom ou prénom invalide<br>";
-            // header("location: ../index.php?error=invalidname");
-            // exit();
+            $_SESSION['error'] = 'Nom ou Prénom invalide!';
+            header("location: ../dashboard.php?error=Nom ou prénom invalide");
+            exit();
         }
         if (!$this->validEmail()) {
-            echo "Erreur: Email invalide<br>";
-            // header("location: ../index.php?error=invalidEmail");
-            // exit();
+            $_SESSION['error'] = 'Email invalide!';
+            header("location: ../dashboard.php?error=Email invalide");
+            exit();
         }
         if (!$this->validNumber()) {
-            echo "Erreur: Numéro invalide<br>";
-            // header("location: ../index.php?error=invalidNum");
-            // exit();
+            $_SESSION['error'] = 'Numéro invalide!';
+            header("location: ../dashboard.php?error=Numéro invalide");
+            exit();
         }
 
         // Si aucune erreur, affichage d'un message de succès
         
-
+        $ClientCree = true;
         
         $this->setClient($this->numC, $this->nomC, $this->prenomC, $this->emailC, $this->telC, $this->matricule_utilisateur);
-        $_SESSION['message'] = 'Client bien enregistré!';
+        
+        if ($ClientCree) {
+            $_SESSION['message'] = 'Client enregistrée avec succès!';
+            header("Location: ../dashboard.php?message=Client%20enregistrée%20avec%20succès.");
+        }
 
     }
 }
