@@ -79,7 +79,6 @@ $totalPages = ceil($totalFactures / $limit);
                     </div>
                 </div>
 
-
                 <div class="factures-table">
                     <table>
                         <thead>
@@ -113,15 +112,34 @@ $totalPages = ceil($totalFactures / $limit);
                                 echo "<td>{$facture['montant_total']} DH</td>";
                                 echo "<td class='{$etatClass}'>{$facture['statut']}</td>";
                                 echo "<td><a href='#'><img src='images/information.png' alt='info' class='facture-info' style='width: 20px;'></a></td>";
-                                echo "<td><img src='images/pencil.png' alt='editer' class='facture-edit' style='width: 20px;'></td>";
-                                echo "<td><img src='images/delete.png' alt='supprimer' class='delete-facture' style='width: 20px;cursor: pointer;'></td>";
-                                echo "<td><img src='images/import.png' alt='importer' class='delete-facture' style='width: 20px;'></td>";
+                                echo "<td><img src='images/pencil.png' alt='editer' class='edit-facture' style='width: 20px;'></td>";
+                                echo "<td><img src='images/delete.png' alt='supprimer' class='delete-facture' style='width: 20px;cursor: pointer;' data-numfacture='{$facture['numero_facture']}'></td>";
+                                echo "<td><img src='images/import.png' alt='importer' class='import-facture' style='width: 20px;'></td>";
                                 echo "</tr>";
                             }
                             ?>
                         </tbody>
                     </table>
                 </div>
+
+                <div class="supp">
+                    <form action="includes/deleteF.inc.php" method="post">
+                        <p style="color:white;">Vous voulez supprimer cette facture ?</p>
+                        <input type="hidden" name="numfacture" id="numfacture">
+                        <input type="hidden" name="matricule" id="matricule">
+                        <div class="btn">
+                            <button class="closeD" name="closeD" id="closeButton">Annuler</button>
+                            <button type="submit" name="submit">supprimer</button>
+                        </div>
+                    </form>
+                </div>
+
+
+
+
+
+
+
                 <div class="bottom-list">
                     <div class="pagination">
                         <?php if ($page > 1): ?>
