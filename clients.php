@@ -99,13 +99,27 @@ $totalPages = ceil($totalClients / $limit);
                                 echo "<td>{$client['telephone']} </td>";
                                 echo "<td>{$client['date_creation']} </td>";
                                 echo "<td><img src='images/pencil.png' alt='editer' style='width: 20px;'></td>";
-                                echo "<td><img src='images/delete.png' alt='supprimer' style='width: 20px;'></td>";
+                                echo "<td><img src='images/delete.png' alt='supprimer' style='width: 20px;' data-numclient='{$client['numero_client']}'></td>";
                                 echo "</tr>";
                             }
                             ?>
                     </tbody>
                 </table>
             </div>
+
+            <div class="supp">
+                <form action="includes/deleteC.inc.php" method="post">
+                    <input type="hidden" name="numclient" id="numclient">
+                    <input type="hidden" name="matricule" id="matricule">
+                    <p style="color:white;">Vous voulez supprimer ce client ?</p>
+                    <div class="btn">
+                        <button type="button" class="closeD" id="closeButton">Annuler</button>
+                        <button type="submit" name="submit">Supprimer</button>
+                    </div>
+                </form>
+            </div>
+
+
             <div class="bottom-list">
                 <div class="pagination">
                     <?php if ($page > 1): ?>

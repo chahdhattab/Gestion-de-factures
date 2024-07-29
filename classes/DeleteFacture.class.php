@@ -1,6 +1,6 @@
 <?php
 
-class Delete extends Dbh{
+class DeleteFacture extends Dbh{
 
 
     private $numfacture;
@@ -11,7 +11,6 @@ class Delete extends Dbh{
         $this->numfacture=$numf;
         $this->matricule=$matricule;
     }
-
     
 
 
@@ -28,5 +27,7 @@ class Delete extends Dbh{
             header("Location: ../factures.php?Erreur !");
         }
     }
+
+  
     
 }

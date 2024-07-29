@@ -13,9 +13,9 @@ if (!isset($_SESSION["matricule"])) {
 require_once __DIR__ . '/class-autoload.inc.php';
 
 if (isset($_POST["submit"])){
-    $numfacture = $_POST["numfacture"];
+    $numclient = $_POST["numclient"];
     $matricule = $_SESSION["matricule"];
 
-    $deletedfacture = new DeleteFacture($numfacture,$matricule);
-    $deletedfacture->deleteFacture();
+    $deletedclient = new DeleteClient($numclient,$matricule);
+    $deletedclient->deleteClient();
 }
