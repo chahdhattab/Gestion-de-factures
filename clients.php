@@ -99,7 +99,7 @@ $totalPages = ceil($totalClients / $limit);
                                 echo "<td>{$client['telephone']} </td>";
                                 echo "<td>{$client['date_creation']} </td>";
                                 echo "<td><img src='images/pencil.png' alt='editer' style='width: 20px;'></td>";
-                                echo "<td><img src='images/delete.png' alt='supprimer' style='width: 20px;' data-numclient='{$client['numero_client']}'></td>";
+                                echo "<td><img src='images/delete.png' alt='supprimer' style='width: 20px;' class='delete-client' data-numclient='{$client['numero_client']}'></td>";
                                 echo "</tr>";
                             }
                             ?>
