@@ -112,10 +112,10 @@ $totalPages = ceil($totalFactures / $limit);
                                 echo "<td>{$facture['date_creation']}</td>";
                                 echo "<td>{$facture['montant_total']} DH</td>";
                                 echo "<td class='{$etatClass}'>{$facture['statut']}</td>";
-                                echo "<td><a href='#'><img src='images/information.png' alt='info' style='width: 20px;'></a></td>";
-                                echo "<td><img src='images/pencil.png' alt='editer' style='width: 20px;'></td>";
-                                echo "<td><img src='images/delete.png' alt='supprimer' style='width: 20px;'></td>";
-                                echo "<td><img src='images/import.png' alt='importer' style='width: 20px;'></td>";
+                                echo "<td><a href='#'><img src='images/information.png' alt='info' class='facture-info' style='width: 20px;'></a></td>";
+                                echo "<td><img src='images/pencil.png' alt='editer' class='facture-edit' style='width: 20px;'></td>";
+                                echo "<td><img src='images/delete.png' alt='supprimer' class='delete-facture' style='width: 20px;cursor: pointer;'></td>";
+                                echo "<td><img src='images/import.png' alt='importer' class='delete-facture' style='width: 20px;'></td>";
                                 echo "</tr>";
                             }
                             ?>

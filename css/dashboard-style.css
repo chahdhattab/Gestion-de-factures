@@ -91,24 +91,14 @@ main .insights svg{
 main .insights svg circle {
     fill: none;
     stroke: var(--color-danger);
-    stroke-width: 14; stroke-linecap: round;
+    stroke-width: 14;
+    stroke-linecap: round;
     transform: translate(5px, 5px); 
-    stroke-dasharray: 110; 
-    stroke-dashoffset: 92;
+    stroke-dasharray: 226.2;
+    stroke-dashoffset: 226.2; 
 }
 
-main .insights .factures-payées svg circle {
-stroke-dashoffset: 20; 
-stroke-dasharray: 200;
-}
-main .insights .factures-part-payées svg circle{
-stroke-dashoffset: 20; 
-stroke-dasharray: 80;
-}
-main .insights .factures-nn-payées svg circle {
-stroke-dashoffset: -20; 
-stroke-dasharray: 100;
-}
+
 
 main .insights .progress .number {
     position: absolute;

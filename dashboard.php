@@ -87,7 +87,6 @@ $lastClient= $clientObj->getLastClient($_SESSION["matricule"]);
             
             <h1>Dashboard</h1>
             <div class="insights">
-                
                 <div class="factures-payées">
                     <img src="images/fully-payed.png" alt="logo" style="width:35px;">
                     <div class="middle">
@@ -100,11 +99,10 @@ $lastClient= $clientObj->getLastClient($_SESSION["matricule"]);
                                 <circle cx='38' cy='38' r='36'></circle>
                             </svg>
                             <div class="number">
-                                <p><?= (int)(($totalpayed/$totalF)*100) ?>%</p>
+                                <p id="percentage-payed"><?= (int)(($totalpayed/$totalF)*100) ?>%</p>
                             </div>
                         </div>
                     </div>
-                   
                 </div>
                 <!-------------fin : factures payées------------>
                 <div class="factures-part-payées">
@@ -119,13 +117,12 @@ $lastClient= $clientObj->getLastClient($_SESSION["matricule"]);
                                 <circle cx='38' cy='38' r='36'></circle>
                             </svg>
                             <div class="number">
-                                <p><?= (int)(($totalparpayed/$totalF)*100) ?>%</p>
+                                <p id="percentage-partially-payed"><?= (int)(($totalparpayed/$totalF)*100) ?>%</p>
                             </div>
                         </div>
                     </div>
-                    
                 </div>
-                <!-------------fin : factures patiellement payées------------>
+                <!-------------fin : factures partiellement payées------------>
                 <div class="factures-nn-payées">
                     <img src="images/not-payed.png" alt="logo" style="width:35px;">
                     <div class="middle">
@@ -138,14 +135,37 @@ $lastClient= $clientObj->getLastClient($_SESSION["matricule"]);
                                 <circle cx='38' cy='38' r='36'></circle>
                             </svg>
                             <div class="number">
-                                <p><?= (int)(($totalunpayed/$totalF)*100) ?>%</p>
+                                <p id="percentage-unpayed"><?= (int)(($totalunpayed/$totalF)*100) ?>%</p>
                             </div>
                         </div>
                     </div>
-                    
                 </div>
-                <!-------------fin : factures non payées------------>
             </div>
+            <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                    var totalF = <?= $totalF ?>;
+
+                    function setCircleProgress(selector, total) {
+                        var percentage = (total / totalF) * 100;
+                        var circle = document.querySelector(selector + ' svg circle');
+                        var circumference = 2 * Math.PI * 36; // Circumference of the circle
+
+                        // Calculate the stroke-dashoffset based on the percentage
+                        var offset = circumference - (percentage / 100) * circumference;
+                        
+                        // Set the stroke-dasharray and stroke-dashoffset values
+                        circle.style.strokeDasharray = `${circumference}`;
+                        circle.style.strokeDashoffset = `${offset}`;
+
+                        // Update the percentage text
+                        document.querySelector(selector + ' .number p').textContent = `${Math.round(percentage)}%`;
+                    }
+
+                    setCircleProgress('.factures-payées', <?= $totalpayed ?>);
+                    setCircleProgress('.factures-part-payées', <?= $totalparpayed ?>);
+                    setCircleProgress('.factures-nn-payées', <?= $totalunpayed ?>);
+                });
+            </script>
             <!---------------fin : insights------------------------------>
 
             <div class="recent-factures">
