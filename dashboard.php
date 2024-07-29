@@ -14,8 +14,10 @@ require "classes/FetchClients.class.php";
 
 $factureObj = new FetchFactures();
 $clientObj = new FetchClients();
+
+
 $Lfactures = $factureObj->getLatestFactures($_SESSION["matricule"]);
-$totalF=$factureObj->getLatestFactures($_SESSION["matricule"]);
+$totalF=$factureObj->getTotalFactures($_SESSION["matricule"]);
 
 $totalpayed=$factureObj->getTotalPayedFactures($_SESSION["matricule"]);
 $totalparpayed=$factureObj->getTotalParPayedFactures($_SESSION["matricule"]);
@@ -98,7 +100,7 @@ $lastClient= $clientObj->getLastClient($_SESSION["matricule"]);
                                 <circle cx='38' cy='38' r='36'></circle>
                             </svg>
                             <div class="number">
-                                <p>41%</p>
+                                <p><?= (int)(($totalpayed/$totalF)*100) ?>%</p>
                             </div>
                         </div>
                     </div>
@@ -117,7 +119,7 @@ $lastClient= $clientObj->getLastClient($_SESSION["matricule"]);
                                 <circle cx='38' cy='38' r='36'></circle>
                             </svg>
                             <div class="number">
-                                <p>35%</p>
+                                <p><?= (int)(($totalparpayed/$totalF)*100) ?>%</p>
                             </div>
                         </div>
                     </div>
@@ -136,7 +138,7 @@ $lastClient= $clientObj->getLastClient($_SESSION["matricule"]);
                                 <circle cx='38' cy='38' r='36'></circle>
                             </svg>
                             <div class="number">
-                                <p><?= $totalunpayed ?></p>
+                                <p><?= (int)(($totalunpayed/$totalF)*100) ?>%</p>
                             </div>
                         </div>
                     </div>

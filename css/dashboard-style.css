@@ -186,12 +186,15 @@ main .recent-factures a {
     display: none;
 }
 .right .recent-updates{
-    margin-top:1rem;
+    margin-top:2rem;
 }
 .right .recent-updates h2{
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color:var(--color-primary);
     margin-bottom: 0.8rem;
+}
+.right .recent-updates p{
+    font-size: 1rem;
 }
 
 .right .recent-updates .updates{
@@ -200,6 +203,8 @@ main .recent-factures a {
     border-radius: var(--card-border-radius);
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
+    margin-bottom : 3rem;
+    margin-top : 1.5rem;
 }
 
 .right .recent-updates .updates:hover{
