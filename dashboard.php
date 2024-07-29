@@ -9,10 +9,20 @@ if (!isset($_SESSION["username"])) {
 
 require "classes/Dbh.class.php";
 require "classes/FetchFactures.class.php";
+require "classes/FetchClients.class.php";
+
 
 $factureObj = new FetchFactures();
-
+$clientObj = new FetchClients();
 $Lfactures = $factureObj->getLatestFactures($_SESSION["matricule"]);
+$totalF=$factureObj->getLatestFactures($_SESSION["matricule"]);
+
+$totalpayed=$factureObj->getTotalPayedFactures($_SESSION["matricule"]);
+$totalparpayed=$factureObj->getTotalParPayedFactures($_SESSION["matricule"]);
+$totalunpayed=$factureObj->getTotalUnPayedFactures($_SESSION["matricule"]);
+$lastFacture = $factureObj->getLastFacture($_SESSION["matricule"]);
+
+$lastClient= $clientObj->getLastClient($_SESSION["matricule"]);
 ?>
 
 <!DOCTYPE html>
@@ -81,7 +91,7 @@ $Lfactures = $factureObj->getLatestFactures($_SESSION["matricule"]);
                     <div class="middle">
                         <div class="left">
                             <h3>Factures Payées</h3>
-                            <h1>137</h1>
+                            <h1><?= $totalpayed ?></h1>
                         </div>
                         <div class="progress">
                             <svg>
@@ -100,7 +110,7 @@ $Lfactures = $factureObj->getLatestFactures($_SESSION["matricule"]);
                     <div class="middle">
                         <div class="left">
                             <h3>Factures Partiellement Payées</h3>
-                            <h1>97</h1>
+                            <h1><?= $totalparpayed ?></h1>
                         </div>
                         <div class="progress">
                             <svg>
@@ -119,14 +129,14 @@ $Lfactures = $factureObj->getLatestFactures($_SESSION["matricule"]);
                     <div class="middle">
                         <div class="left">
                             <h3>Factures <br>Non <br>Payées</h3>
-                            <h1>63</h1>
+                            <h1><?= $totalunpayed ?></h1>
                         </div>
                         <div class="progress">
                             <svg>
                                 <circle cx='38' cy='38' r='36'></circle>
                             </svg>
                             <div class="number">
-                                <p>24%</p>
+                                <p><?= $totalunpayed ?></p>
                             </div>
                         </div>
                     </div>
@@ -201,23 +211,18 @@ $Lfactures = $factureObj->getLatestFactures($_SESSION["matricule"]);
                             <img src="images/invoice-4.png" alt="icon"> 
                         </div>
                         <div class="message">
-                            <p><b class="primary">Nouvelle facture créée: </b><br> Facture #67953 pour Client: Mohammed HATTAB, le 29/07/2024, montant total de 6080 DH</p>
+                            <p><b class="primary">Nouvelle facture créée: </b><br> Facture #<?php echo htmlspecialchars($lastFacture['numero_facture']); ?>
+                            pour Client: <?php echo htmlspecialchars($lastFacture['client_nom']) . ' ' . htmlspecialchars($lastFacture['client_prenom']); ?>, ajoutée le <?php echo htmlspecialchars(date('d/m/Y', strtotime($lastFacture['date_creation']))); ?>, d'un montant total de <?php echo htmlspecialchars($lastFacture['montant_total']); ?> DH</p>
                         </div>
+
                     </div>
                     <div class="update">
                         <div class="profile-photo">
                             <img src="images/reputation.png" alt="icon"> 
                         </div>
                         <div class="message">
-                            <p><b class="primary">Nouveau client ajouté: </b><br> Client Amine Rahaoui, ajouté le 28/07/2024.</p>
-                        </div>
-                    </div>
-                    <div class="update">
-                        <div class="profile-photo">
-                            <img src="images/invoice-4.png" alt="icon"> 
-                        </div>
-                        <div class="message">
-                            <p><b class="primary">Nouvelle facture créée: </b><br> Facture #67952 pour Cliente: Aya AALOU, le 25/07/2024, montant total de 250 DH</p>
+                            <p><b class="primary">Nouveau client ajouté: </b><br> Client #<?php echo htmlspecialchars($lastClient['numero_client']); ?>, <?php echo htmlspecialchars($lastClient['nom']) . ' ' . htmlspecialchars($lastClient['prenom']); ?>, ajouté
+                            le <?php echo htmlspecialchars(date('d/m/Y', strtotime($lastFacture['date_creation']))); ?>.</p>
                         </div>
                     </div>
                 </div>

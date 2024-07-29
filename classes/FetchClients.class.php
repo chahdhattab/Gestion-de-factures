@@ -18,4 +18,13 @@ class FetchClients extends Dbh {
         $stmt->execute();
         return $stmt->fetch()['total'];
     }
+
+    public function getLastClient($matricule_utilisateur) {
+        $sql = "SELECT * FROM clients WHERE matricule_utilisateur = :matricule_utilisateur
+                ORDER BY date_creation DESC LIMIT 1";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->bindParam(':matricule_utilisateur', $matricule_utilisateur, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
 }
