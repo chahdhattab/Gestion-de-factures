@@ -112,7 +112,7 @@ $totalPages = ceil($totalFactures / $limit);
                                 echo "<td>{$facture['montant_total']} DH</td>";
                                 echo "<td class='{$etatClass}'>{$facture['statut']}</td>";
                                 echo "<td><a href='#'><img src='images/information.png' alt='info' class='facture-info' style='width: 20px;'></a></td>";
-                                echo "<td><img src='images/pencil.png' alt='editer' class='edit-facture' style='width: 20px;'></td>";
+                                echo "<td><img src='images/pencil.png' alt='editer' class='edit-facture' style='width: 20px;' data-numfacture='{$facture['numero_facture']}'></td>";
                                 echo "<td><img src='images/delete.png' alt='supprimer' class='delete-facture' style='width: 20px;cursor: pointer;' data-numfacture='{$facture['numero_facture']}'></td>";
                                 echo "<td><img src='images/import.png' alt='importer' class='import-facture' style='width: 20px;'></td>";
                                 echo "</tr>";
@@ -130,6 +130,33 @@ $totalPages = ceil($totalFactures / $limit);
                         <div class="btn">
                             <button class="closeD" name="closeD" id="closeButton">Annuler</button>
                             <button type="submit" name="submit">supprimer</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="edit">
+                    <form action="includes/editF.inc.php" method="post">
+                        <p style="color:white;">Modifier la facture</p>
+                        <input type="hidden" name="numfacture" id="editNumfacture">
+                        <input type="hidden" name="matricule" id="editMatricule">
+                        <div>
+                            <label for="editDateCreation">Date de création:</label>
+                            <input type="date" name="date_creation" id="editDateCreation">
+                        </div>
+                        <div>
+                            <label for="editMontantTotal">Montant Total (DH):</label>
+                            <input type="number" step="0.01" name="montant_total" id="editMontantTotal">
+                        </div>
+                        <div>
+                            <label for="editStatut">Statut:</label>
+                            <select name="statut" id="editStatut">
+                                <option value="payée">Payée</option>
+                                <option value="partiellement_payée">Partiellement Payée</option>
+                                <option value="non_payée">Non Payée</option>
+                            </select>
+                        </div>
+                        <div class="btn">
+                            <button class="closeE" name="closeE" id="closeEditButton">Annuler</button>
+                            <button type="submit" name="submit">Modifier</button>
                         </div>
                     </form>
                 </div>
