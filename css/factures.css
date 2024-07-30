@@ -194,8 +194,8 @@ main .bottom-list .add-export .export:hover{
     padding: var(--card-border-radius);
 
 }
-.add-facture-form input{
-    margin-bottom: 0.5rem;;
+.add-facture-form input , .edit input{
+    margin-bottom: 0.5rem;
     background-color: var(--color-white);
     box-shadow: var(--box-shadow);
     padding: 10px;
@@ -283,3 +283,49 @@ main .bottom-list .add-export .export:hover{
     border-radius: var(--card-border-radius);
 }
 
+.edit {
+    font-size: 15px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-primary);
+    box-shadow: var(--box-shadow);
+    color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    z-index: 1000;
+    display: none; /* Initialement caché */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease; 
+}
+
+.edit.open {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.edit .btn {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.edit button {
+    color: var(--color-primary);
+    font-size: 15px;
+    margin-top: 1.5rem;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    padding: var(--padding-1);
+    border-radius: var(--card-border-radius);
+    
+}
+.edit select {
+    background-color: var(--color-info-light);
+    padding: 10px;
+    border-radius: var(--border-radius-2);
+    color: var(--color-primary);
+}

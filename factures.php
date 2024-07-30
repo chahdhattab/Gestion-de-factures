@@ -30,7 +30,7 @@ $totalPages = ceil($totalFactures / $limit);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clients</title>
+    <title>Factures</title>
     <link rel="stylesheet" href="css/factures.css">
 </head>
 <body>
@@ -105,14 +105,14 @@ $totalPages = ceil($totalFactures / $limit);
                                     $etatClass = 'danger';
                                 }
 
-                                echo "<tr>";
+                                echo "<tr data-numfacture='{$facture['numero_facture']}' data-numclient='{$facture['numero_client']}' data-datecreation='{$facture['date_creation']}' data-montanttotal='{$facture['montant_total']}' data-statut='{$facture['statut']}'>";
                                 echo "<td>{$facture['numero_facture']}</td>";
                                 echo "<td>{$facture['numero_client']}</td>";
                                 echo "<td>{$facture['date_creation']}</td>";
                                 echo "<td>{$facture['montant_total']} DH</td>";
                                 echo "<td class='{$etatClass}'>{$facture['statut']}</td>";
                                 echo "<td><a href='#'><img src='images/information.png' alt='info' class='facture-info' style='width: 20px;'></a></td>";
-                                echo "<td><img src='images/pencil.png' alt='editer' class='edit-facture' style='width: 20px;' data-numfacture='{$facture['numero_facture']}'></td>";
+                                echo "<td><img src='images/pencil.png' alt='editer' class='edit-facture' style='width: 20px;cursor: pointer;' data-numfacture='{$facture['numero_facture']}'></td>";
                                 echo "<td><img src='images/delete.png' alt='supprimer' class='delete-facture' style='width: 20px;cursor: pointer;' data-numfacture='{$facture['numero_facture']}'></td>";
                                 echo "<td><img src='images/import.png' alt='importer' class='import-facture' style='width: 20px;'></td>";
                                 echo "</tr>";
@@ -133,9 +133,10 @@ $totalPages = ceil($totalFactures / $limit);
                         </div>
                     </form>
                 </div>
+
                 <div class="edit">
                     <form action="includes/editF.inc.php" method="post">
-                        <p style="color:white;">Modifier la facture</p>
+                        <p style="color:white; font-size:30px; font-weight:600; text-align:center">Modifier la facture</p><br>
                         <input type="hidden" name="numfacture" id="editNumfacture">
                         <input type="hidden" name="matricule" id="editMatricule">
                         <div>
@@ -144,23 +145,24 @@ $totalPages = ceil($totalFactures / $limit);
                         </div>
                         <div>
                             <label for="editMontantTotal">Montant Total (DH):</label>
-                            <input type="number" step="0.01" name="montant_total" id="editMontantTotal">
+                            <input type="number" name="montant_total" id="editMontantTotal">
                         </div>
                         <div>
                             <label for="editStatut">Statut:</label>
                             <select name="statut" id="editStatut">
+                                <option value="0"><---Sélectionner l'état---></option>
                                 <option value="payée">Payée</option>
                                 <option value="partiellement_payée">Partiellement Payée</option>
                                 <option value="non_payée">Non Payée</option>
                             </select>
-                        </div>
+                        </div><br>
                         <div class="btn">
                             <button class="closeE" name="closeE" id="closeEditButton">Annuler</button>
                             <button type="submit" name="submit">Modifier</button>
                         </div>
                     </form>
                 </div>
-
+                
 
 
 

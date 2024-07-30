@@ -67,3 +67,54 @@ document.addEventListener('click', (event) => {
         closeDialog();
     }
 });
+
+// Sélecteurs
+const editForm = document.querySelector('.edit');
+const closeEditButton = document.querySelector('#closeEditButton');
+
+// Fonction pour ouvrir le formulaire d'édition
+function openEditForm(facture) {
+    document.getElementById('editNumfacture').value = facture.numfacture;
+    document.getElementById('editMatricule').value = '<?php echo $_SESSION["matricule"]; ?>';
+    document.getElementById('editDateCreation').value = facture.datecreation;
+    document.getElementById('editMontantTotal').value = facture.montanttotal;
+    document.getElementById('editStatut').value = facture.statut;
+    editForm.classList.add('open'); // Afficher le formulaire d'édition avec animation
+}
+
+// Fonction pour fermer le formulaire d'édition
+function closeEditForm() {
+    editForm.classList.remove('open'); // Masquer le formulaire d'édition avec animation
+}
+
+// Gestion des clics pour ouvrir le formulaire d'édition
+document.querySelectorAll('.edit-facture').forEach(function(button) {
+    button.addEventListener('click', function() {
+        const facture = {
+            numfacture: this.closest('tr').dataset.numfacture,
+            numclient: this.closest('tr').dataset.numclient,
+            datecreation: this.closest('tr').dataset.datecreation,
+            montanttotal: this.closest('tr').dataset.montanttotal,
+            statut: this.closest('tr').dataset.statut
+        };
+        openEditForm(facture);
+    });
+});
+
+// Gestion du clic sur le bouton Annuler
+closeEditButton.addEventListener('click', (event) => {
+    event.preventDefault(); // Empêche le comportement par défaut du bouton
+    closeEditForm();
+});
+
+// Empêcher la propagation du clic à l'intérieur du formulaire pour éviter la fermeture
+editForm.addEventListener('click', (event) => {
+    event.stopPropagation();
+});
+
+// Fermer le formulaire si l'utilisateur clique en dehors
+document.addEventListener('click', (event) => {
+    if (!editForm.contains(event.target) && !event.target.classList.contains('edit-facture')) {
+        closeEditForm();
+    }
+});
