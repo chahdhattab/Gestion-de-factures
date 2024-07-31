@@ -21,18 +21,18 @@ class EditClient extends Dbh{
 
     public function updateClient() {
         try {
-            $sql = "UPDATE client SET nom = ?, prenom = ? , telephone = ? , email = ? 
+            $sql = "UPDATE clients SET nom = ?, prenom = ? , telephone = ? , email = ? 
             WHERE numero_client = ? AND matricule_utilisateur = ?";
             $stmt = $this->connect()->prepare($sql);
-            $stmt->execute([$this->nomc, $this->montantp, $this->prenomc, $this->tel, $this->email, $this->numclient, $this->matricule]);
+            $stmt->execute([$this->nomc, $this->prenomc, $this->tel, $this->email, $this->numclient, $this->matricule]);
             $_SESSION['message'] = 'Client modifiée !';
             header("Location: ../clients.php?message=Client%20modifiée !");
         } catch (Exception $e) {
             echo "Error: " . $e->getMessage();
             $_SESSION['error'] = 'Erreur lors de modification !';
-            header("Location: ../clients.php?Erreur !");
+            header("Location: ../clients.php?erreur !");
         }
     }
-
+    
 
 }

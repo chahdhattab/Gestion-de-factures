@@ -6,10 +6,8 @@ error_reporting(E_ALL);
 class FetchFactures extends Dbh {
 
     public function getFacturesByPage($limit, $offset, $matricule_utilisateur) {
-        $sql = "SELECT f.* FROM factures f
-                JOIN clients c ON f.numero_client = c.numero_client
-                WHERE c.matricule_utilisateur = :matricule_utilisateur
-                LIMIT :limit OFFSET :offset";
+        $sql = "SELECT f.numero_facture, f.numero_client, f.date_creation, f.montant_total , f.montant_payé, f.statut, c.nom AS client_nom, c.prenom AS client_prenom, c.email AS client_email, c.telephone AS client_telephone FROM factures f JOIN clients c ON f.numero_client = c.numero_client WHERE c.matricule_utilisateur = :matricule_utilisateur LIMIT :limit OFFSET :offset ";
+       
         $stmt = $this->connect()->prepare($sql);
         $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
         $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);

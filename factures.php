@@ -106,7 +106,7 @@ $totalPages = ceil($totalFactures / $limit);
                                     $etatClass = 'danger';
                                 }
 
-                                echo "<tr data-numfacture='{$facture['numero_facture']}' data-numclient='{$facture['numero_client']}' data-montantpayé='{$facture['montant_payé']}' data-montanttotal='{$facture['montant_total']}' data-statut='{$facture['statut']}'>";
+                                echo "<tr data-numfacture='{$facture['numero_facture']}' data-numclient='{$facture['numero_client']}' data-montantpayé='{$facture['montant_payé']}' data-montanttotal='{$facture['montant_total']}' data-statut='{$facture['statut']}' data-numclient='{$facture['numero_client']}' data-nomclient='{$facture['client_nom']}' data-prenomclient='{$facture['client_prenom']}' data-emailclient='{$facture['client_email']}' data-telclient='{$facture['client_telephone']}'  >";
                                 echo "<td>{$facture['numero_facture']}</td>";
                                 echo "<td>{$facture['numero_client']}</td>";
                                 echo "<td>{$facture['date_creation']}</td>";
