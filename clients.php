@@ -91,14 +91,14 @@ $totalPages = ceil($totalClients / $limit);
                         <?php
                             foreach ($clients as $client) {
 
-                                echo "<tr>";
+                                echo "<tr data-numclient='{$client['numero_client']}' data-nom='{$client['nom']}' data-prenom='{$client['prenom']}' data-telephone='{$client['telephone']}' data-email='{$client['email']}'>";
                                 echo "<td>{$client['numero_client']}</td>";
                                 echo "<td>{$client['nom']}</td>";
                                 echo "<td>{$client['prenom']}</td>";
                                 echo "<td>{$client['email']} </td>";
                                 echo "<td>{$client['telephone']} </td>";
                                 echo "<td>{$client['date_creation']} </td>";
-                                echo "<td><img src='images/pencil.png' alt='editer' style='width: 20px;'></td>";
+                                echo "<td><img src='images/pencil.png' alt='editer' style='width: 20px;' class='edit-client' data-numclient='{$client['numero_client']}></td>";
                                 echo "<td><img src='images/delete.png' alt='supprimer' style='width: 20px;' class='delete-client' data-numclient='{$client['numero_client']}'></td>";
                                 echo "</tr>";
                             }
@@ -118,6 +118,35 @@ $totalPages = ceil($totalClients / $limit);
                     </div>
                 </form>
             </div>
+
+            <div class="edit">
+                    <form action="includes/editC.inc.php" method="post">
+                        <p style="color:white; font-size:30px; font-weight:600; text-align:center">Modifier :</p><br>
+                        <input type="hidden" name="numclient" id="editNumclient">
+                        <input type="hidden" name="matricule" id="editMatricule">
+                        <div>
+                            <label for="editNom">Nom :</label>
+                            <input type="text" name="nom" id="editNom">
+                        </div>
+                        <div>
+                            <label for="editPrenom">Prénom :</label>
+                            <input type="text" name="prenom" id="editPrenom">
+                        </div>
+                        <div>
+                            <label for="editEmail">Email :</label>
+                            <input type="email" name="email" id="editEmail">
+                        </div>
+                        <div>
+                            <label for="editTel">Email :</label>
+                            <input type="text" name="tel" id="editTel">
+                        </div>
+                        
+                        <div class="btn">
+                            <button class="closeE" name="closeE" id="closeEditButton">Annuler</button>
+                            <button type="submit" name="submit">Modifier</button>
+                        </div>
+                    </form>
+                </div>
 
 
             <div class="bottom-list">
