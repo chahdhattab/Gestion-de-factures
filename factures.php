@@ -96,7 +96,6 @@ $totalPages = ceil($totalFactures / $limit);
                         <tbody>
                         <?php
                             foreach ($factures as $facture) {
-                                
                                 $etatClass = '';
                                 if ($facture['statut'] == 'payée') {
                                     $etatClass = 'success';
@@ -106,7 +105,7 @@ $totalPages = ceil($totalFactures / $limit);
                                     $etatClass = 'danger';
                                 }
 
-                                echo "<tr data-numfacture='{$facture['numero_facture']}' data-numclient='{$facture['numero_client']}' data-montantpayé='{$facture['montant_payé']}' data-montanttotal='{$facture['montant_total']}' data-statut='{$facture['statut']}' data-numclient='{$facture['numero_client']}' data-nomclient='{$facture['client_nom']}' data-prenomclient='{$facture['client_prenom']}' data-emailclient='{$facture['client_email']}' data-telclient='{$facture['client_telephone']}'  >";
+                                echo "<tr data-numfacture='{$facture['numero_facture']}' data-numclient='{$facture['numero_client']}' data-montantpayé='{$facture['montant_payé']}' data-montanttotal='{$facture['montant_total']}' data-statut='{$facture['statut']}' data-nomclient='{$facture['client_nom']}' data-prenomclient='{$facture['client_prenom']}' data-emailclient='{$facture['client_email']}' data-telclient='{$facture['client_telephone']}'>";
                                 echo "<td>{$facture['numero_facture']}</td>";
                                 echo "<td>{$facture['numero_client']}</td>";
                                 echo "<td>{$facture['date_creation']}</td>";
@@ -119,9 +118,11 @@ $totalPages = ceil($totalFactures / $limit);
                                 echo "<td><img src='images/import.png' alt='importer' class='import-facture' style='width: 20px;'></td>";
                                 echo "</tr>";
                             }
-                            ?>
+                        ?>
+
                         </tbody>
                     </table>
+                    <p id="no-results" style="display: none; text-align: center; margin-top:3rem;font-size: 20px;">Aucun résultat trouvé</p>
                 </div>
 
                 <div class="supp">
@@ -166,21 +167,21 @@ $totalPages = ceil($totalFactures / $limit);
                 </div>
 
                            <!-- Fenêtre modale pour les détails de la facture -->
-                           
+
                 <div id="facture-details-modal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
-                        <h2>Détails de la Facture</h2>
-                        <p><strong>Numéro de Facture:</strong> <span id="modal-numfacture"></span></p>
-                        <p><strong>Numéro du Client:</strong> <span id="modal-numclient"></span></p>
-                        <p><strong>Date de Création:</strong> <span id="modal-datecreation"></span></p>
-                        <p><strong>Montant Total:</strong> <span id="modal-montanttotal"></span> DH</p>
-                        <p><strong>Montant Payé:</strong> <span id="modal-montantpayé"></span> DH</p>
-                        <p><strong>Statut:</strong> <span id="modal-statut"></span></p>
-                        <p><strong>Nom du Client:</strong> <span id="modal-nomclient"></span></p>
-                        <p><strong>Prénom du Client:</strong> <span id="modal-prenomclient"></span></p>
-                        <p><strong>Email du Client:</strong> <span id="modal-emailclient"></span></p>
-                        <p><strong>Téléphone du Client:</strong> <span id="modal-telclient"></span></p>
+                        <h2>Détails de la Facture</h2><br>
+                        <p><strong>Numéro de Facture  :  </strong> <span id="modal-numfacture"></span></p>
+                        <p><strong>Numéro du Client  :  </strong> <span id="modal-numclient"></span></p>
+                        <p><strong>Date de Création  :  </strong> <span id="modal-datecreation"></span></p>
+                        <p><strong>Montant Total  :  </strong> <span id="modal-montanttotal">DH</span></p>
+                        <p><strong>Montant Payé  :  </strong> <span id="modal-montantpayé">DH</span></p>
+                        <p><strong>Statut  :  </strong> <span id="modal-statut"></span></p>
+                        <p><strong>Nom du Client  :  </strong> <span id="modal-nomclient"></span></p>
+                        <p><strong>Prénom du Client  :  </strong> <span id="modal-prenomclient"></span></p>
+                        <p><strong>Email du Client  :  </strong> <span id="modal-emailclient"></span></p>
+                        <p><strong>Téléphone du Client  :  </strong> <span id="modal-telclient"></span></p>
                     </div>
                 </div>
 

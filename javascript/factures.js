@@ -175,3 +175,24 @@ document.querySelectorAll('.facture-info').forEach(function(button) {
     });
 });
 
+
+document.getElementById('search-facture').addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    const rows = document.querySelectorAll('tbody tr');
+    let hasResults = false;
+
+    rows.forEach(row => {
+        const numFacture = row.getAttribute('data-numfacture').toLowerCase();
+        const numClient = row.getAttribute('data-numclient').toLowerCase();
+        const statut = row.getAttribute('data-statut').toLowerCase();
+
+        if (numFacture.includes(searchTerm) || numClient.includes(searchTerm) || statut.includes(searchTerm)) {
+            row.style.display = '';
+            hasResults = true;
+        } else {
+            row.style.display = 'none';
+        }
+    });
+
+    document.getElementById('no-results').style.display = hasResults ? 'none' : 'block';
+});

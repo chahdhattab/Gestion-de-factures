@@ -105,6 +105,7 @@ $totalPages = ceil($totalClients / $limit);
                             ?>
                     </tbody>
                 </table>
+                <p id="no-results" style="display: none; text-align: center; margin-top:3rem;font-size: 20px;">Aucun résultat trouvé</p>
             </div>
 
             <div class="supp">

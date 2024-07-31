@@ -112,3 +112,26 @@ document.addEventListener('click', (event) => {
     }
 });
 
+
+
+
+document.getElementById('search-client').addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    const rows = document.querySelectorAll('tbody tr');
+    let hasResults = false;
+
+    rows.forEach(row => {
+        const numClient = row.getAttribute('data-numclient').toLowerCase();
+        const nomClient = row.getAttribute('data-nom').toLowerCase();
+        const prenomClient = row.getAttribute('data-prenom').toLowerCase();
+
+        if (numClient.includes(searchTerm) || nomClient.includes(searchTerm) || prenomClient.includes(searchTerm)) {
+            row.style.display = '';
+            hasResults = true;
+        } else {
+            row.style.display = 'none';
+        }
+    });
+
+    document.getElementById('no-results').style.display = hasResults ? 'none' : 'block';
+});

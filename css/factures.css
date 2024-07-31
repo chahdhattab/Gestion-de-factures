@@ -331,37 +331,64 @@ main .bottom-list .add-export .export:hover{
 }
 
 /* Style pour la fenêtre modale */
+/* Style général de la modale */
 .modal {
     display: none; /* Cachée par défaut */
     position: fixed;
-    z-index: 1;
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
 }
 
+/* Contenu de la modale */
 .modal-content {
-    background-color: #fefefe;
     margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+    width: 30%;
+    max-width: 600px; /* Largeur maximale */
+    background-color: var(--color-white); /* Fond blanc */
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    position: relative; /* Pour positionner la croix de fermeture */
 }
 
-.close {
-    color: #aaa;
-    float: right;
+/* Style pour le titre */
+.modal h2 {
     font-size: 28px;
-    font-weight: bold;
+    text-align: center;
+    color: var(--color-primary); /* Couleur du texte du titre */
+    margin-bottom: 20px; /* Espace sous le titre */
 }
 
+/* Style pour les éléments textuels */
+.modal strong {
+    color: var(--color-primary2);
+    font-size: 16px;
+}
+
+.modal span {
+    color: #555555;
+    font-size: 14px;
+}
+
+/* Style pour le bouton de fermeture */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #666;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Style au survol du bouton de fermeture */
 .close:hover,
 .close:focus {
-    color: black;
+    color: var(--color-danger);
     text-decoration: none;
-    cursor: pointer;
 }
