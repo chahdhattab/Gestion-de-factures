@@ -164,6 +164,29 @@ $totalPages = ceil($totalFactures / $limit);
                         </div>
                     </form>
                 </div>
+
+                           <!-- Fenêtre modale pour les détails de la facture -->
+                           
+                <div id="facture-details-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Détails de la Facture</h2>
+                        <p><strong>Numéro de Facture:</strong> <span id="modal-numfacture"></span></p>
+                        <p><strong>Numéro du Client:</strong> <span id="modal-numclient"></span></p>
+                        <p><strong>Date de Création:</strong> <span id="modal-datecreation"></span></p>
+                        <p><strong>Montant Total:</strong> <span id="modal-montanttotal"></span> DH</p>
+                        <p><strong>Montant Payé:</strong> <span id="modal-montantpayé"></span> DH</p>
+                        <p><strong>Statut:</strong> <span id="modal-statut"></span></p>
+                        <p><strong>Nom du Client:</strong> <span id="modal-nomclient"></span></p>
+                        <p><strong>Prénom du Client:</strong> <span id="modal-prenomclient"></span></p>
+                        <p><strong>Email du Client:</strong> <span id="modal-emailclient"></span></p>
+                        <p><strong>Téléphone du Client:</strong> <span id="modal-telclient"></span></p>
+                    </div>
+                </div>
+
+
+
+                
                 
 
 

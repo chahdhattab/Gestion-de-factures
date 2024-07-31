@@ -118,3 +118,60 @@ document.addEventListener('click', (event) => {
         closeEditForm();
     }
 });
+
+
+
+
+
+// Sélecteurs pour la fenêtre modale et le bouton de fermeture
+const modal = document.getElementById('facture-details-modal');
+const span = document.querySelector('.modal .close');
+
+// Fonction pour ouvrir la fenêtre modale avec les détails de la facture
+function openModal(facture) {
+    document.getElementById('modal-numfacture').innerText = facture.numfacture;
+    document.getElementById('modal-numclient').innerText = facture.numclient;
+    document.getElementById('modal-datecreation').innerText = facture.datecreation;
+    document.getElementById('modal-montanttotal').innerText = facture.montanttotal;
+    document.getElementById('modal-montantpayé').innerText = facture.montantpayé;
+    document.getElementById('modal-statut').innerText = facture.statut;
+    document.getElementById('modal-nomclient').innerText = facture.nomclient;
+    document.getElementById('modal-prenomclient').innerText = facture.prenomclient;
+    document.getElementById('modal-emailclient').innerText = facture.emailclient;
+    document.getElementById('modal-telclient').innerText = facture.telclient;
+    modal.style.display = 'block';
+}
+
+// Fonction pour fermer la fenêtre modale
+span.onclick = function() {
+    modal.style.display = 'none';
+}
+
+// Fermer la fenêtre modale si l'utilisateur clique en dehors
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+
+// Gestion des clics pour ouvrir la fenêtre modale
+document.querySelectorAll('.facture-info').forEach(function(button) {
+    button.addEventListener('click', function(event) {
+        event.preventDefault();
+        const row = this.closest('tr');
+        const facture = {
+            numfacture: row.dataset.numfacture,
+            numclient: row.dataset.numclient,
+            datecreation: row.dataset.datecreation,
+            montanttotal: row.dataset.montanttotal,
+            montantpayé: row.dataset.montantpayé,
+            statut: row.dataset.statut,
+            nomclient: row.dataset.nomclient,
+            prenomclient: row.dataset.prenomclient,
+            emailclient: row.dataset.emailclient,
+            telclient: row.dataset.telclient
+        };
+        openModal(facture);
+    });
+});
+
