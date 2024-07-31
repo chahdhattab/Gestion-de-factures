@@ -76,7 +76,7 @@ const closeEditButton = document.querySelector('#closeEditButton');
 function openEditForm(facture) {
     document.getElementById('editNumfacture').value = facture.numfacture;
     document.getElementById('editMatricule').value = '<?php echo $_SESSION["matricule"]; ?>';
-    document.getElementById('editDateCreation').value = facture.datecreation;
+    document.getElementById('editMontantPayé').value = facture.montantpayé;
     document.getElementById('editMontantTotal').value = facture.montanttotal;
     document.getElementById('editStatut').value = facture.statut;
     editForm.classList.add('open'); // Afficher le formulaire d'édition avec animation
@@ -93,7 +93,7 @@ document.querySelectorAll('.edit-facture').forEach(function(button) {
         const facture = {
             numfacture: this.closest('tr').dataset.numfacture,
             numclient: this.closest('tr').dataset.numclient,
-            datecreation: this.closest('tr').dataset.datecreation,
+            montantpayé: this.closest('tr').dataset.montantpayé,
             montanttotal: this.closest('tr').dataset.montanttotal,
             statut: this.closest('tr').dataset.statut
         };

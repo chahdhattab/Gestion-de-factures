@@ -85,7 +85,8 @@ $totalPages = ceil($totalFactures / $limit);
                             <th>N° Facture</th>
                             <th>N° Client</th>
                             <th>Date de création</th>
-                            <th>Montant</th>
+                            <th>Montant total</th>
+                            <th>Montant payé</th>
                             <th>État du Paiement</th>
                             <th></th>
                             <th></th>
@@ -105,11 +106,12 @@ $totalPages = ceil($totalFactures / $limit);
                                     $etatClass = 'danger';
                                 }
 
-                                echo "<tr data-numfacture='{$facture['numero_facture']}' data-numclient='{$facture['numero_client']}' data-datecreation='{$facture['date_creation']}' data-montanttotal='{$facture['montant_total']}' data-statut='{$facture['statut']}'>";
+                                echo "<tr data-numfacture='{$facture['numero_facture']}' data-numclient='{$facture['numero_client']}' data-montantpayé='{$facture['montant_payé']}' data-montanttotal='{$facture['montant_total']}' data-statut='{$facture['statut']}'>";
                                 echo "<td>{$facture['numero_facture']}</td>";
                                 echo "<td>{$facture['numero_client']}</td>";
                                 echo "<td>{$facture['date_creation']}</td>";
                                 echo "<td>{$facture['montant_total']} DH</td>";
+                                echo "<td>{$facture['montant_payé']} DH</td>";
                                 echo "<td class='{$etatClass}'>{$facture['statut']}</td>";
                                 echo "<td><a href='#'><img src='images/information.png' alt='info' class='facture-info' style='width: 20px;'></a></td>";
                                 echo "<td><img src='images/pencil.png' alt='editer' class='edit-facture' style='width: 20px;cursor: pointer;' data-numfacture='{$facture['numero_facture']}'></td>";
@@ -140,8 +142,8 @@ $totalPages = ceil($totalFactures / $limit);
                         <input type="hidden" name="numfacture" id="editNumfacture">
                         <input type="hidden" name="matricule" id="editMatricule">
                         <div>
-                            <label for="editDateCreation">Date de création:</label>
-                            <input type="date" name="date_creation" id="editDateCreation">
+                            <label for="editMontantPayé">Montant Payé (DH):</label>
+                            <input type="number" name="montant_payé" id="editMontantPayé">
                         </div>
                         <div>
                             <label for="editMontantTotal">Montant Total (DH):</label>
