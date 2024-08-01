@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-
     <form action="includes/login.inc.php" method="post">
         <div class="container">
             <div class="login-box">

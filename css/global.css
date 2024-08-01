@@ -184,3 +184,35 @@ aside .sidebar a img {
 aside .sidebar a:hover img {
     margin-left: 1rem;
 }
+
+
+.message-succ {
+    font-size: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-success);
+    box-shadow: var(--box-shadow);
+    color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    z-index: 1000;
+    display: block;
+    transition: opacity 0.3s ease; 
+}
+.message-fail {
+    font-size: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-danger);
+    box-shadow: var(--box-shadow);
+    color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    z-index: 1000;
+    display: block;
+    transition: opacity 0.3s ease; 
+}

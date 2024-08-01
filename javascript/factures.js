@@ -25,6 +25,48 @@ document.addEventListener('click', (event) => {
 
 
 
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Sélectionnez l'élément avec la classe message-succ
+    var messageElement = document.querySelector(".message-succ");
+
+    // Vérifiez si l'élément existe
+    if (messageElement) {
+        // Attendez 2 secondes, puis masquez le message
+        setTimeout(function() {
+            messageElement.style.opacity = "0";
+            setTimeout(function() {
+                messageElement.parentNode.removeChild(messageElement);
+            }, 200); // Supprimez l'élément après que la transition soit terminée (300ms)
+        }, 1000); // Attendez 2 secondes avant de commencer à masquer
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Sélectionnez l'élément avec la classe message-succ
+    var messageElement1 = document.querySelector(".message-fail");
+
+    // Vérifiez si l'élément existe
+    if (messageElement1) {
+        // Attendez 2 secondes, puis masquez le message
+        setTimeout(function() {
+            messageElement1.style.opacity = "0";
+            setTimeout(function() {
+                messageElement1.parentNode.removeChild(messageElement1);
+            }, 200); // Supprimez l'élément après que la transition soit terminée (300ms)
+        }, 1000); // Attendez 2 secondes avant de commencer à masquer
+    }
+});
+
+
+
+
+
+
+
+
+
+
 // Sélecteurs
 const factureDelete = document.querySelector('.supp');
 const closeD = document.querySelector('#closeButton');

@@ -34,6 +34,14 @@ $totalPages = ceil($totalFactures / $limit);
     <link rel="stylesheet" href="css/factures.css">
 </head>
 <body>
+    <?php
+        if(isset($_GET['message'])){
+            echo '<p class="message-succ" id="message-display">'.htmlspecialchars($_GET["message"]).'</p>';
+        }
+        if(isset($_GET['error'])){
+            echo '<p class="message-fail" id="message-display1">'.htmlspecialchars($_GET["error"]).'</p>';
+        }
+    ?>
     <div class="container"> 
         <aside>
             <div class="top">
