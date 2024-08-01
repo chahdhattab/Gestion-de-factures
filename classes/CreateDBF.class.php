@@ -3,7 +3,7 @@
 //classe qui prepare l'execution de la créaction d'un utilisateur
 
 class CreateDBF extends Dbh{
-    protected function setFacture($numf, $numc, $montant, $etat, $usermtrcl) {
+    protected function setFacture($numf, $numc, $montant, $montantp, $etat, $usermtrcl) {
         try {
             // Vérifier si le client existe 
             $sql = 'SELECT numero_client FROM clients WHERE numero_client = ? AND matricule_utilisateur = ?';
@@ -29,9 +29,9 @@ class CreateDBF extends Dbh{
                 exit();
             }
             // Insérer un nouvel client
-            $sql = 'INSERT INTO factures (numero_facture, numero_client, montant_total, statut) VALUES (?, ?, ?, ?)';
+            $sql = 'INSERT INTO factures (numero_facture, numero_client, montant_total, montant_payé, statut) VALUES (?, ?, ?, ?,?)';
             $stmt = $this->connect()->prepare($sql);
-            if (!$stmt->execute([$numf, $numc, $montant, $etat])) {
+            if (!$stmt->execute([$numf, $numc, $montant, $montantp, $etat])) {
                 throw new Exception("Erreur lors de l'insertion de la facture : " . implode(", ", $stmt->errorInfo()));
             }
             

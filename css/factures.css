@@ -187,7 +187,7 @@ main .bottom-list .add-export .export:hover{
     display:none;
     position:absolute;
     right:30rem;
-    top:25.5rem;
+    top:21rem;
     background-color: var(--color-white);
     border-radius: var(--card-border-radius);
     box-shadow: var(--box-shadow);

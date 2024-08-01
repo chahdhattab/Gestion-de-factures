@@ -4,19 +4,21 @@ class CreateFacture extends CreateDBF{
     private $numf;
     private $numc;
     private $montant;
+    private $montantp;
     private $matricule_utilisateur;
     private $etat;
 
-    public function __construct($numf,$numc,$montant,$matricule,$etat){
+    public function __construct($numf,$numc,$montant,$montantp,$matricule,$etat){
         $this->numf=$numf;
         $this->numc=$numc;
         $this->montant=$montant;
+        $this->montantp=$montantp;
         $this->matricule_utilisateur=$matricule;
         $this->etat=$etat;
     }
 
     public function emptyInput() {
-        if (empty($this->numf) || empty($this->numc) || empty($this->montant) || empty($this->etat)) {
+        if (empty($this->numf) || empty($this->numc) || empty($this->montant) || empty($this->montantp) || empty($this->etat)) {
             return false; 
         } else {
             return true; 
@@ -46,7 +48,7 @@ class CreateFacture extends CreateDBF{
             header("location: ../dashboard.php?error=Remplissez tout les champs ");
             exit();
         }
-        if(!$this->validnumber($this->montant) || !$this->validnumber($this->numc)){
+        if(!$this->validnumber($this->montantp) || !$this->validnumber($this->montant) || !$this->validnumber($this->numc)){
             $_SESSION['error'] = 'Numéro invalide!';
             header("location: ../dashboard.php?error=Numéro invalide");
             exit();
@@ -54,7 +56,7 @@ class CreateFacture extends CreateDBF{
 
         $factureCree = true;
 
-        $this->setFacture($this->numf, $this->numc, $this->montant, $this->etat, $this->matricule_utilisateur);
+        $this->setFacture($this->numf, $this->numc, $this->montant, $this->montantp,$this->etat, $this->matricule_utilisateur,);
 
     
         if ($factureCree) {

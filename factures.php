@@ -236,6 +236,9 @@ $totalPages = ceil($totalFactures / $limit);
                         
                         <label for="montant">Montant Total :</label>
                         <input type="text" id="montant" name="montant" required>
+
+                        <label for="montantpayé">Montant Payé :</label>
+                        <input type="text" id="montantpayé" name="montantpayé" required>
                         
                         <label for="etat">État de facture :</label><br>
                         <select id="etat" name="etat" required>

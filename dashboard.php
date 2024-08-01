@@ -299,6 +299,9 @@ $lastClient= $clientObj->getLastClient($_SESSION["matricule"]);
                             
                             <label for="mantant">Montant Total : </label>
                             <input type="text" id="montant" name="montant" required>
+
+                            <label for="montantpayé">Montant Payé :</label>
+                            <input type="text" id="montantpayé" name="montantpayé" required>
                             
                             <label for="options">État de facture</label><br>
                             <select id="etat" name="etat" required>

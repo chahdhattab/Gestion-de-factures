@@ -15,11 +15,12 @@ if (isset($_POST["submit"])) {
     $numf = $_POST['numf'];
     $numc = $_POST['numc'];
     $montant = $_POST['montant'];
+    $montantp = $_POST['montantpayé'];
     $etat = $_POST['etat'];
     $matricule = $_SESSION["matricule"];
 
     // Créez une instance de LoginCont et essayez de connecter l'utilisateur
-    $createclient = new CreateFacture($numf,$numc,$montant,$matricule,$etat);
+    $createclient = new CreateFacture($numf,$numc,$montant,$montantp,$matricule,$etat);
     $createclient->createNewFacture();
 }
 
