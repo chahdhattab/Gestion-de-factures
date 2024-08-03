@@ -45,7 +45,8 @@ CREATE TABLE IF NOT EXISTS paiements (
     FOREIGN KEY (numero_facture) REFERENCES factures(numero_facture)
 ) ENGINE=InnoDB;
 
--- Insertion des utilisateurs avec des matricules et mots de passe sécurisés
+-- Insertion des utilisateurs avec des matricules et mots de passe sécurisés 
+-- une fonction va les hasher automatiquement
 
 INSERT INTO utilisateurs (matricule, mot_de_passe, nom, prenom) VALUES
 ('D5E6F7G8', 'S3cur3@#', 'RABHI', 'Hiba'),

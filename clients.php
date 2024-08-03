@@ -68,7 +68,7 @@ $totalPages = ceil($totalClients / $limit);
                     <img src="images/customer.png" alt="Logo" style="width:30px;">
                     <h3>Clients</h3>
                 </a>
-                <a href="index.php">
+                <a href="login.php">
                     <img src="images/logout.png" alt="Logo" style="width:30px;">
                     <h3>Déconnexion</h3>
                 </a>
